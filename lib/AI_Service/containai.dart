@@ -43,7 +43,7 @@ class _ContainAIState extends State<ContainAI> {
       maxWidth: 1000.0, // Match ContainAI's maxWidth
       scrollController: _scrollController, // Pass the ScrollController
       contentSections: [
-        Web1(), // Replaced Web1 with AI1
+        Web1(scrollToForm: scrollToForm), // Replaced Web1 with AI1
         const Am4(), // Replaced Am4 with AI4
         const Am7(), // Replaced Am7 with AI7
         //AutoMovingCardSection(), // Replaced AutoMovingCardSection with AI3 (assuming it's a card section)
@@ -51,7 +51,7 @@ class _ContainAIState extends State<ContainAI> {
         const Web6(), // Replaced Web6 with AI5
         const Web7(), // Replaced Web7 with AI8
         const Cloud6(),
-        ContactForm(), // Attach the form key
+        ContactForm(key: _formKey), // Attach the form key
       ],
     );
   }
