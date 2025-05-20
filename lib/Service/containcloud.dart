@@ -27,7 +27,7 @@ class ContainCloud extends StatelessWidget {
                 SizedBox(height: 24),
                 Cloud6(),
                 SizedBox(height: 24),
-                Cloud7(),
+                ContactForm(),
 
       ],
     );
