@@ -38,7 +38,7 @@ class ContainHC extends StatelessWidget {
         Cloud5(),
         Cloud6(),
         AmTcSection(),
-        Cloud7(),
+        ContactForm(),
       ],
     );
   }
