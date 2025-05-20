@@ -50,7 +50,7 @@ class _ContainDMState extends State<ContainDM> {
         const Web6(), // Reused widget
         const Web7(), // Reused widget
         const Cloud6(),
-        Cloud7(key: _formKey), // Attach the form key
+        ContactForm(key: _formKey), // Attach the form key
       ],
     );
   }
