@@ -162,7 +162,7 @@ class _ContactFormState extends State<ContactForm> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        'We are here to answer your questions and discuss your project needs.',
+                        'Hi,We are here to answer your questions 🤝.',
                         style: TextStyle(
                           fontSize: fontSize,
                           color: Colors.black87,
