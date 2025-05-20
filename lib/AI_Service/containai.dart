@@ -50,7 +50,7 @@ class _ContainAIState extends State<ContainAI> {
         const Web6(), // Replaced Web6 with AI5
         const Web7(), // Replaced Web7 with AI8
         const Cloud6(),
-        Cloud7(key: _formKey), // Attach the form key
+        ContactForm(key: _formKey), // Attach the form key
       ],
     );
   }
