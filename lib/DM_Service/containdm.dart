@@ -8,6 +8,7 @@ import 'dm6.dart';
 import 'dm7.dart';
 import 'dm8.dart';
 import 'package:flutter_app/Service/cloud6.dart';
+import '../Screen/screen.dart'; // Import GenericScreen from Screen folder
 
 class ContainDM extends StatefulWidget {
   const ContainDM({super.key});
@@ -29,35 +30,28 @@ class _ContainDMState extends State<ContainDM> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final maxWidth = screenWidth < 700 ? double.infinity : 1000.0;
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        controller: _scrollController,
-        padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
-        child: Center(
-          child: Container(
-            width: maxWidth,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Web1(scrollToForm: scrollToForm),
-                const Am4(),
-                const Am7(),
-                const MarketingSection(),
-                const Am6(),
-                
-                const Web6(),
-                const Web7(),
-                const Cloud6(),
-                ContactForm(key: _formKey),
-              ],
-            ),
-          ),
-        ),
-      ),
+  @override
+  Widget build(BuildContext context) {
+    return GenericScreen(
+      title: 'Digital Marketing Services', // Set the title for the AppBar
+      maxWidth: 1000.0, // Match ContainDM's maxWidth
+      scrollController: _scrollController, // Pass the ScrollController
+      contentSections: [
+        Web1(scrollToForm: scrollToForm), // Reused widget
+        const Am4(), // Reused widget
+        const Am7(), // Reused widget
+        const MarketingSection(), // Reused widget
+        const Am6(), // Reused widget
+        const Web6(), // Reused widget
+        const Web7(), // Reused widget
+        const Cloud6(),
+        Cloud7(key: _formKey), // Attach the form key
+      ],
     );
   }
 }
