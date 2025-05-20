@@ -8,46 +8,38 @@ import 'fb6.dart';
 import 'fb7.dart';
 import 'fb8.dart';
 import 'fb9.dart';
-import "fb10.dart";
-import "fb11.dart";
-import "fb12.dart";
-import "fb13.dart";
-import "fb14.dart";
+import 'fb10.dart';
+import 'fb11.dart';
+//import 'fb12.dart';
+import 'fb13.dart';
+import 'fb14.dart';
+import '../Service/cloud6.dart';
+import '../Screen/screen.dart'; // Import GenericScreen from Screen folder
+
 class ContainFB extends StatelessWidget {
   const ContainFB({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
-        child: Center(
-          child: Container(
-            width: MediaQuery.of(context).size.width < 700 ? double.infinity : 600,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                AM1(),
-                AM2Section(),
-                AM3(),
-                Am4(),
-                AM5(),
-                Am6(),
-                Am7(),
-                AM8(),
-                AM9(),
-
-                Cloud4(),
-                Cloud5(),
-                Cloud6(),
-                Cloud7(),
-
-              ],
-            ),
-          ),
-        ),
-      ),
+    return GenericScreen(
+      title: 'Finance & Banking Services', // Set the title for the AppBar
+      maxWidth: 600.0, // Match ContainFB's maxWidth
+      contentSections: const [
+        AM1(),
+        AM2Section(),
+        AM3(),
+        Am4(),
+        AM5(),
+        Am6(),
+        Am7(),
+        AM8(),
+        AM9(),
+        AmTcSection(),
+        Cloud4(),
+        Cloud5(),
+        Cloud6(),
+        ContactForm(),
+      ],
     );
   }
 }
