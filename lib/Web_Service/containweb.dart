@@ -51,7 +51,7 @@ class _ContainWebState extends State<ContainWeb> {
         const Web6(),
         const Web7(),
         const Cloud6(),
-        Cloud7(key: _formKey), // Attach the form key
+        ContactForm(key: _formKey), // Attach the form key
       ],
     );
   }
