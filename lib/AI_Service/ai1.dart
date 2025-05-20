@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Web1 extends StatefulWidget {
   final VoidCallback scrollToForm;
-
+ 
   const Web1({Key? key, required this.scrollToForm}) : super(key: key);
 
   @override
