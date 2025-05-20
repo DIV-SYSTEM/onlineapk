@@ -13,45 +13,32 @@ import "hc11.dart";
 //import "hc12.dart";
 import "hc13.dart";
 import "hc14.dart";
-
-import 'package:flutter_app/Service/cloud6.dart';
+import '../Screen/screen.dart'; // Import GenericScreen from Screen folder
 
 class ContainHC extends StatelessWidget {
   const ContainHC({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
-        child: Center(
-          child: Container(
-            width: MediaQuery.of(context).size.width < 700 ? double.infinity : 600,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                AM1(),
-                AM2Section(),
-                AM3(),
-                Am4(),
-                AM5(),
-                Am6(),
-                Am7(),
-                AM8(),
-                AM9(),
-                Cloud4(),
-                Cloud5(),
-                
-                AmTcSection(),
-                Cloud6(),
-                ContactForm(),
-
-              ],
-            ),
-          ),
-        ),
-      ),
+    return GenericScreen(
+      title: 'Healthcare Services', // Set the title for the AppBar
+      maxWidth: 600.0, // Match ContainHC's maxWidth
+      contentSections: const [
+        AM1(),
+        AM2Section(),
+        AM3(),
+        Am4(),
+        AM5(),
+        Am6(),
+        Am7(),
+        AM8(),
+        AM9(),
+        Cloud4(),
+        Cloud5(),
+        Cloud6(),
+        AmTcSection(),
+        Cloud7(),
+      ],
     );
   }
 }
