@@ -6,21 +6,15 @@ import 'cloud4.dart';
 import 'cloud5.dart';
 import 'cloud6.dart';
 import 'cloud7.dart';
+import '../Screen/screen.dart';
 class ContainCloud extends StatelessWidget {
   const ContainCloud({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
-        child: Center(
-          child: Container(
-            width: MediaQuery.of(context).size.width < 700 ? double.infinity : 600,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+    return GenericScreen(
+      title: 'Cloud Services',
+      contentSections: const[
                 Cloud1(),
                 SizedBox(height: 24),
                 Web2(),
@@ -33,12 +27,12 @@ class ContainCloud extends StatelessWidget {
                 SizedBox(height: 24),
                 Cloud6(),
                 SizedBox(height: 24),
-                ContactForm(),
-              ],
-            ),
-          ),
-        ),
-      ),
+                Cloud7(),
+
+      ],
     );
   }
 }
+
+
+
