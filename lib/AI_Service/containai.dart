@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'ai1.dart';
 import 'ai2.dart';
 import 'ai3.dart';
-//import 'ai4.dart';
+import 'ai4.dart';
 import 'ai5.dart';
 import 'ai6.dart';
 import 'ai7.dart';
 import 'ai8.dart';
 import 'package:flutter_app/Service/cloud6.dart';
+import '../Screen/screen.dart'; // Import GenericScreen from Screen folder
 
 class ContainAI extends StatefulWidget {
   const ContainAI({super.key});
@@ -29,35 +30,28 @@ class _ContainAIState extends State<ContainAI> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final maxWidth = screenWidth < 700 ? double.infinity : 1000.0;
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
-    return Scaffold(
-      body: SingleChildScrollView(
-        controller: _scrollController,
-        padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
-        child: Center(
-          child: Container(
-            width: maxWidth,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Web1(scrollToForm: scrollToForm),
-                const Am4(),
-                const Am7(),
-                //AutoMovingCardSection(),
-                const Am6(),
-                
-                const Web6(),
-                const Web7(),
-                const Cloud6(),
-                ContactForm(key: _formKey),
-              ],
-            ),
-          ),
-        ),
-      ),
+  @override
+  Widget build(BuildContext context) {
+    return GenericScreen(
+      title: 'AI Services', // Set the title for the AppBar
+      maxWidth: 1000.0, // Match ContainAI's maxWidth
+      scrollController: _scrollController, // Pass the ScrollController
+      contentSections: [
+        Web1(scrollToForm: scrollToForm), // Replaced Web1 with AI1
+        const Am4(), // Replaced Am4 with AI4
+        const Am7(), // Replaced Am7 with AI7
+        AutoMovingCardSection(), // Replaced AutoMovingCardSection with AI3 (assuming it's a card section)
+        const Am6(), // Replaced Am6 with AI6
+        const Web6(), // Replaced Web6 with AI5
+        const Web7(), // Replaced Web7 with AI8
+        const Cloud6(),
+        Cloud7(key: _formKey), // Attach the form key
+      ],
     );
   }
 }
