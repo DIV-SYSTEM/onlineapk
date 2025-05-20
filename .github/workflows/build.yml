@@ -17,8 +17,10 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.22.3' # Updated to match Dart 3.7.2+
+          flutter-version: '3.29.3' # Matches Dart 3.7.2+
           channel: 'stable'
+      - name: Clean project
+        run: flutter clean
       - name: Install dependencies
         run: flutter pub get
       - name: Build APK
