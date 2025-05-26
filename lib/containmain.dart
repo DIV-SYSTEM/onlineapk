@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'header.dart';
 import 'slider_drawer.dart';
 import 'home1.dart';
@@ -19,26 +21,33 @@ class ContainMain extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const Header(),
-      endDrawer: const CustomDrawer(),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: const [
-              Demo1(),
-              ServiceCardsSection(),
-              Home3(),
-              Home4(),
-              //Home5(),
-              //Home6(),
-              Home7(),
-              Home8(),
-              Home9(),
-              Home10(),
-              Home11(),
-              Footer(),
-            ],
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.dark,
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: const Header(),
+        endDrawer: const CustomDrawer(),
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Column(
+              children: const [
+                Demo1(),
+                ServiceCardsSection(),
+                Home3(),
+                Home4(),
+                Home5(),
+                Home6(),
+                Home7(),
+                Home8(),
+                Home9(),
+                Home10(),
+                Home11(),
+                Footer(),
+              ],
+            ),
           ),
         ),
       ),
