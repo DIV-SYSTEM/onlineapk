@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class Cloud1 extends StatelessWidget {
-  const Cloud1({super.key});
+  final VoidCallback onConsultationTapped; // Callback for button action
+
+  const Cloud1({super.key, required this.onConsultationTapped});
 
   @override
   Widget build(BuildContext context) {
@@ -63,9 +65,7 @@ class Cloud1 extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
-            onPressed: () {
-              // Add navigation or functionality here
-            },
+            onPressed: onConsultationTapped, // Trigger scrolling to Cloud7
             child: const Text(
               'Schedule a Cloud Consultation',
               style: TextStyle(color: Colors.white),
@@ -105,7 +105,7 @@ class Cloud1 extends StatelessWidget {
           BoxShadow(
             color: Colors.grey.shade400,
             blurRadius: 8,
-offset: const Offset(0, 4),
+            offset: const Offset(0, 4),
           )
         ],
       ),
