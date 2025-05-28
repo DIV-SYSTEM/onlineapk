@@ -34,9 +34,16 @@ class Cloud6 extends StatelessWidget {
           buildContactCard(Icons.email, 'Email', ['info@theoneaim.co.in']),
           const SizedBox(height: 16),
           buildContactCard(Icons.location_on, 'Office Address', [
-            'No-123, Omega',
+            '🏢 No-123, Omega',
             'Anukampa, Near Sanskrit College',
-            'Bhankrota, Jaipur'
+            'Bhankrota, Jaipur',
+            '            ',
+            '🏢 5590 Satinleaf way',
+            'Sanramon CA 94582',
+            '    ',
+            '🏢 2/41/2 , 1st Floor, Sadar Bazar ',
+            'Moradabad Pahari ,PO.Delhi Cantt',
+            'Dist:- South West Delhi,110010'
           ]),
           const SizedBox(height: 32),
 
