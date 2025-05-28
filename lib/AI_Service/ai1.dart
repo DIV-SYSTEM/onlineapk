@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class Web1 extends StatefulWidget {
   final VoidCallback scrollToForm;
- 
+
   const Web1({Key? key, required this.scrollToForm}) : super(key: key);
 
   @override
@@ -57,40 +57,41 @@ class _Web1State extends State<Web1> {
             ),
           ),
           const SizedBox(height: 30),
-          Wrap(
-            spacing: 20,
-            runSpacing: 10,
-            children: [
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.redAccent,
-                  foregroundColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+          Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.redAccent,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                    elevation: 10,
+                    shadowColor: Colors.redAccent.shade200,
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-                  elevation: 10,
-                  shadowColor: Colors.redAccent.shade200,
+                  onPressed: () {
+                    setState(() => showDeliverance = !showDeliverance);
+                  },
+                  child: const Text("Our Deliverance"),
                 ),
-                onPressed: () {
-                  setState(() => showDeliverance = !showDeliverance);
-                },
-                child: const Text("Our Deliverance"),
-              ),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  foregroundColor: Colors.black,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
+                const SizedBox(height: 10),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                    elevation: 6,
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-                  elevation: 6,
+                  onPressed: widget.scrollToForm,
+                  child: const Text("Contact Us"),
                 ),
-                onPressed: widget.scrollToForm,
-                child: const Text("Contact Us"),
-              ),
-            ],
+              ],
+            ),
           ),
           const SizedBox(height: 30),
           if (showDeliverance)
