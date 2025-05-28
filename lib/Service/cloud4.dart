@@ -35,21 +35,21 @@ class Cloud4 extends StatelessWidget {
           Column(
             children: [
               successCard(
-                imageUrl: 'https://via.placeholder.com/400x200',
+                imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/cloud_image_3.jpg',
                 domain: 'Healthcare',
                 title: 'Healthcare Data Security Overhaul',
                 description:
                     'Implemented comprehensive cloud security measures for a healthcare provider, ensuring HIPAA compliance and protecting sensitive patient data while improving system performance.',
               ),
               successCard(
-                imageUrl: 'https://via.placeholder.com/400x200',
+                imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/cloud_image_2.jpg',
                 domain: 'E-commerce',
                 title: 'Scalable Infrastructure for Growing Start-Up',
                 description:
                     'Deployed scalable, cost-effective cloud hosting and auto-scaling solutions that allowed a fast-growing e-commerce brand to handle surges in traffic with ease.',
               ),
               successCard(
-                imageUrl: 'https://via.placeholder.com/400x200',
+                imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/cloud_image_5.jpg',
                 domain: 'Education',
                 title: 'Virtual Classroom Cloud Integration',
                 description:
