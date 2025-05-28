@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:visibility_detector/visibility_detector.dart';
+import 'Contact/containmain.dart'; // update path as needed
+
 class Home3 extends StatelessWidget {
   const Home3({super.key});
 
@@ -40,7 +42,10 @@ class Home3 extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const ContainMain()),
+              );},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.greenAccent,
               shape: RoundedRectangleBorder(
