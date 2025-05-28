@@ -23,11 +23,20 @@ class Home9 extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 20),
-          Image.asset(
-            'assets/images/your_workflow_image.png',
-            width: screenWidth * 0.8,
-            fit: BoxFit.cover,
-          ),
+          Image.network(
+  'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/workflow.jpg',
+  width: screenWidth * 0.8,
+  fit: BoxFit.cover,
+  errorBuilder: (context, error, stackTrace) => const Icon(
+    Icons.error,
+    size: 50,
+    color: Colors.red,
+  ),
+  loadingBuilder: (context, child, loadingProgress) {
+    if (loadingProgress == null) return child;
+    return const Center(child: CircularProgressIndicator());
+  },
+),
           const SizedBox(height: 30),
           const Divider(color: Colors.white),
           const SizedBox(height: 20),
