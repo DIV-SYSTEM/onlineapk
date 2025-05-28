@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Web2 extends StatefulWidget {
   const Web2({super.key});
@@ -18,39 +19,64 @@ class _Web2State extends State<Web2> {
         'Personalized strategies aligned with your business goals',
         'Expert consulting for AWS, Azure, and Google Cloud'
       ],
-      'button': 'Learn more about it'
+      'button': 'Learn more about it',
+      'url': 'https://example.com/cloud-planning', // Replace with actual URL
+      'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/cloud_image_10.jpg',
     },
     'Cloud Migration Services': {
       'description': 'Our cloud solutions are designed to bring real value—enhancing security, reducing costs, and improving performance. We ensure a seamless, risk-free migration process tailored to your business needs.',
       'features': ['All-in-one transition to the cloud with minimal impact.', 'Certified professionals for AWS, Azure, and Google Cloud'],
-      'button': 'Learn more about it'
+      'button': 'Learn more about it',
+      'url': 'https://www.theoneaim.in/cloud-services/cloud-strategy-migration', // Replace with actual URL
+      'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/cloud_image_9.jpg',
     },
     'Multi-Cloud and Hybrid Solutions': {
       'description': 'We help you harness the best of private, public, and multi-cloud environments. Our hybrid strategies reduce vendor lock-in, optimize performance, and ensure centralized control.',
       'features': ['Integration of private/public clouds for performance and flexibility', 'Seamless hybrid environments using on-premise and cloud tech'],
-      'button': 'Learn more about it'
+      'button': 'Learn more about it',
+      'url': 'https://www.theoneaim.in/cloud-services/cloud-management-optimization', // Replace with actual URL
+      'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/cloud_image_8.jpg',
     },
     'Cloud Security and Compliance': {
       'description': 'We secure your cloud infrastructure using a defense-first approach. Our solutions comply with standards like GDPR, HIPAA, and ISO, and use proactive monitoring to detect threats early.',
       'features': ['Security-first approach to protect data and asset.', 'Compliance with GDPR, HIPAA, ISO, and more'],
-      'button': 'Learn more about it'
+      'button': 'Learn more about it',
+      'url': 'https://www.theoneaim.in/cloud-services/cloud-security-resilience', // Replace with actual URL
+      'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/cloud_image_6.jpg',
     },
     'Backup and Disaster Recovery': {
       'description': 'Be prepared for anything with our disaster-proof cloud backup solutions. From real-time data security to fast, tested recovery, we keep your business resilient and ready.',
       'features': ['Automated cloud backups for business continuity', 'Real-time data protection and restoration'],
-      'button': 'Learn more about it'
+      'button': 'Learn more about it',
+      'url': 'https://example.com/backup-recovery', // Replace with actual URL
+      'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/cloud_image_1.jpg',
     },
     'Cloud Automation': {
       'description': 'Gain full control and visibility of your cloud ecosystem with intelligent tools and 24/7 monitoring. Optimize resources, ensure compliance, and manage everything through custom dashboards.',
       'features': ['Complete control and real-time visibility of cloud operations', 'Intelligent resource management with analytics-based decisions'],
-      'button': 'Learn more about it'
+      'button': 'Learn more about it',
+      'url': 'https://example.com/cloud-automation', // Replace with actual URL
+      'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/cloud_image_11.jpg',
     },
     'DevOps': {
       'description': 'Accelerate your digital initiatives with DevOps automation and cloud-native tools. From CI/CD to Infrastructure as Code, we streamline delivery and enhance agility.',
       'features': ['Accelerated development cycles with automation tools', 'CI/CD pipelines for safer and faster deployments'],
-      'button': 'Learn more about it'
+      'button': 'Learn more about it',
+      'url': 'https://example.com/devops', // Replace with actual URL
+      'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/cloud_image_7.png',
     },
   };
+
+  Future<void> _launchUrl(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Could not launch $url')),
+      );
+    }
+  }
 
   void showServiceDrawer(String service) {
     setState(() => selectedService = service);
@@ -100,11 +126,11 @@ class _Web2State extends State<Web2> {
                       )),
                   const SizedBox(height: 20),
                   AspectRatio(
-                    aspectRatio: 16 / 9,
+                    aspectRatio: 3 / 2, // Based on 791x527
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10),
-                      child: Image.asset(
-                        'assets/$service.png',
+                      child: Image.network(
+                        data['imageUrl'],
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) =>
                             Container(
@@ -112,6 +138,10 @@ class _Web2State extends State<Web2> {
                           child: const Center(
                               child: Text("Image not found")),
                         ),
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return const Center(child: CircularProgressIndicator());
+                        },
                       ),
                     ),
                   ),
@@ -121,7 +151,7 @@ class _Web2State extends State<Web2> {
                       style: ElevatedButton.styleFrom(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10))),
-                      onPressed: () {},
+                      onPressed: () => _launchUrl(data['url']), // Open webpage
                       child: Text(data['button']),
                     ),
                   ),
