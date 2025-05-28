@@ -34,10 +34,19 @@ class ContactInfoSection extends StatelessWidget {
           buildContactCard(Icons.email, 'Email', ['info@theoneaim.co.in']),
           const SizedBox(height: 16),
           buildContactCard(Icons.location_on, 'Office Address', [
-            'No-123, Omega',
+            '🏢 No-123, Omega',
             'Anukampa, Near Sanskrit College',
-            'Bhankrota, Jaipur'
+            'Bhankrota, Jaipur',
+            '            ',
+            '🏢 5590 Satinleaf way',
+            'Sanramon CA 94582',
+            '    ',
+            '🏢 2/41/2 , 1st Floor, Sadar Bazar ',
+            'Moradabad Pahari ,PO.Delhi Cantt',
+            'Dist:- South West Delhi,110010'
           ]),
+        
+          
           const SizedBox(height: 32),
 
           Text(
@@ -71,7 +80,7 @@ class ContactInfoSection extends StatelessWidget {
               buildSocialLogo(
                 'https://cdn-icons-png.flaticon.com/512/733/733547.png',
                 'Facebook',
-                'https://www.facebook.com/yourpage',
+                'https://www.facebook.com/oneaimitsolutions/',
               ),
             ],
           ),
