@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Contact/containmain.dart'; // update path as needed
+import 'image.dart';
 
 class Home4 extends StatelessWidget {
   const Home4({super.key});
@@ -80,10 +81,10 @@ class Home4 extends StatelessWidget {
                   ),
                 ],
               ),
-              child: Image.asset(
-                'assets/images/home_image_1.png', // replace with your image path
-                fit: BoxFit.cover,
-              ),
+              child: ImageDisplay(
+  imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/6.jpg',
+  aspectRatio: 3 / 2, // Taller image
+),
             ),
           ),
 
