@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Contact/containmain.dart'; // update path as needed
 
 class Home9 extends StatelessWidget {
   const Home9({super.key});
@@ -68,7 +69,10 @@ class Home9 extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
-            onPressed: () {},
+            onPressed: () {Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => const ContainMain()),
+              );},
             child: const Text(
               "What's your engineering problem",
               style: TextStyle(color: Colors.white, fontSize: 16),
