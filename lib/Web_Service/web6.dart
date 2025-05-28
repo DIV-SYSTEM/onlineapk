@@ -14,7 +14,7 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     bool isMobile = screenWidth < 600;
-
+ 
     return Container(
       width: double.infinity,
       color: const Color(0xFFF2F2F2),
