@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Am4 extends StatefulWidget {
   const Am4({super.key});
@@ -23,7 +24,8 @@ class _Am4State extends State<Am4> {
         'Enterprise-grade web portals and dashboards',
         'Cloud-based web applications with scalable architecture',
       ],
-      'image': 'assets/images/web_image_5.jpg',
+      'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/web_image_5.jpg',
+      'url': 'https://example.com/web-app-development', // Replace with actual URL
     },
     {
       'title': 'Custom Website Development',
@@ -37,7 +39,8 @@ class _Am4State extends State<Am4> {
         'Custom animations and interactive elements',
         'Accessibility compliance (WCAG standards)',
       ],
-      'image': 'assets/images/web_image_2.jpg',
+      'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/web_image_2.jpg',
+      'url': 'https://example.com/custom-website-development', // Replace with actual URL
     },
     {
       'title': 'UI & UX Designing',
@@ -51,7 +54,8 @@ class _Am4State extends State<Am4> {
         'Usability testing and iterative improvements',
         'Design systems for consistent brand experience',
       ],
-      'image': 'assets/images/web_image_4.jpg',
+      'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/web_image_4.jpg',
+      'url': 'https://example.com/ui-ux-designing', // Replace with actual URL
     },
     {
       'title': 'E-Commerce Development',
@@ -65,7 +69,8 @@ class _Am4State extends State<Am4> {
         'Product catalog and search functionality',
         'Mobile-optimized shopping experiences',
       ],
-      'image': 'assets/images/web_image_1.jpg',
+      'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/web_image_1.jpg',
+      'url': 'https://example.com/e-commerce-development', // Replace with actual URL
     },
     {
       'title': 'API Development & Integration',
@@ -79,7 +84,8 @@ class _Am4State extends State<Am4> {
         'API documentation and developer resources',
         'API security and authentication protocols',
       ],
-      'image': 'assets/images/web_image_8.jpg',
+      'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/web_image_8.jpg',
+      'url': 'https://example.com/api-development', // Replace with actual URL
     },
     {
       'title': 'Front-End Development',
@@ -93,7 +99,8 @@ class _Am4State extends State<Am4> {
         'State management and data flow architecture',
         'Accessibility implementation and testing',
       ],
-      'image': 'assets/images/web_image_9.jpg',
+      'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/web_image_9.jpg',
+      'url': 'https://example.com/front-end-development', // Replace with actual URL
     },
     {
       'title': 'Back-End Development',
@@ -107,10 +114,21 @@ class _Am4State extends State<Am4> {
         'Cloud infrastructure setup and management',
         'Performance monitoring and scaling solutions',
       ],
-      'image': 'assets/images/web_image_10.jpg',
+      'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/web_image_10.jpg',
+      'url': 'https://example.com/back-end-development', // Replace with actual URL
     },
   ];
 
+  Future<void> _launchUrl(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Could not launch $url')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -132,7 +150,6 @@ class _Am4State extends State<Am4> {
             style: TextStyle(fontSize: 16),
           ),
           const SizedBox(height: 20),
-
           Wrap(
             spacing: 8,
             runSpacing: 8,
@@ -141,7 +158,11 @@ class _Am4State extends State<Am4> {
                 label: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Icon(solutions[index]['icon'], size: 18),
+                    Icon(
+                      solutions[index]['icon'],
+                      size: 18,
+                      color: Colors.blue,
+                    ),
                     const SizedBox(width: 6),
                     Flexible(
                       child: Text(
@@ -166,9 +187,7 @@ class _Am4State extends State<Am4> {
               );
             }),
           ),
-
           const SizedBox(height: 20),
-
           if (selectedIndex != null)
             Container(
               padding: const EdgeInsets.all(16),
@@ -206,28 +225,38 @@ class _Am4State extends State<Am4> {
                                   color: Colors.green, size: 20),
                               const SizedBox(width: 8),
                               Expanded(
-                                  child: Text(
-                                feature,
-                                style: const TextStyle(fontSize: 16),
-                              )),
+                                child: Text(
+                                  feature,
+                                  style: const TextStyle(fontSize: 16),
+                                ),
+                              ),
                             ],
                           ))
                       .toList(),
                   const SizedBox(height: 16),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(12),
-                    child: Image.asset(
-                      solutions[selectedIndex!]['image'],
-                      width: double.infinity,
-                      fit: BoxFit.cover,
+                    child: AspectRatio(
+                      aspectRatio: 3 / 2, // Based on previous 791x527
+                      child: Image.network(
+                        solutions[selectedIndex!]['image'],
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) => Container(
+                          color: Colors.grey[200],
+                          child: const Center(child: Text('Image not found')),
+                        ),
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return const Center(child: CircularProgressIndicator());
+                        },
+                      ),
                     ),
                   ),
                   const SizedBox(height: 16),
                   Center(
                     child: ElevatedButton(
-                      onPressed: () {
-                        // You can add navigation or a link here
-                      },
+                      onPressed: () => _launchUrl(solutions[selectedIndex!]['url']),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.redAccent,
                         shape: RoundedRectangleBorder(
