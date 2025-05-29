@@ -14,7 +14,7 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     bool isMobile = screenWidth < 600;
- 
+
     return Container(
       width: double.infinity,
       color: const Color(0xFFF2F2F2),
@@ -22,103 +22,105 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
         vertical: isMobile ? 30 : 50,
         horizontal: isMobile ? 16 : 40,
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // Heading
-          const Text(
-            'Success Stories',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 28,
-              fontWeight: FontWeight.bold,
-              color: Colors.black87,
-              letterSpacing: 1.2,
-            ),
-          ),
-          const SizedBox(height: 16),
-
-          // Subtext
-          const Text(
-            'See how our cloud services have helped businesses across industries overcome challenges and achieve their goals.',
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.black87,
-              height: 1.5,
-            ),
-          ),
-          const SizedBox(height: 25),
-
-          // Toggle Button
-          ElevatedButton.icon(
-            onPressed: () {
-              setState(() {
-                showStories = !showStories;
-              });
-            },
-            icon: const Icon(Icons.arrow_drop_down_circle_outlined),
-            label: const Text(
-              'Check Our Success Stories',
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-            ),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.redAccent,
-              foregroundColor: Colors.white,
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            // Heading
+            const Text(
+              'Success Stories',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                color: Colors.black87,
+                letterSpacing: 1.2,
               ),
-              elevation: 5,
-              shadowColor: Colors.deepPurpleAccent.withOpacity(0.3),
             ),
-          ),
-          const SizedBox(height: 30),
+            const SizedBox(height: 16),
 
-          // Success Stories Area with custom animation
-          ClipRect(
-            child: AnimatedSize(
-              duration: const Duration(milliseconds: 600),
-              curve: Curves.easeInOutCubic,
-              reverseDuration: const Duration(milliseconds: 600),
+            // Subtext
+            const Text(
+              'Explore some of our recent web development projects and the results we have achieved for our clients.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black87,
+                height: 1.5,
+              ),
+            ),
+            const SizedBox(height: 25),
 
-              child: Align(
-                alignment: Alignment.center,
-                heightFactor: showStories ? 1.0 : 0.0,
-                child: AnimatedOpacity(
-                  opacity: showStories ? 1.0 : 0.0,
-                  duration: const Duration(milliseconds: 400),
-                  curve: Curves.easeInOut,
-                  child: Column(
-                    children: [
-                      successCard(
-                        imageUrl: 'https://via.placeholder.com/400x200',
-                        domain: 'Healthcare',
-                        title: 'Healthcare Data Security Overhaul',
-                        description:
-                            'Implemented comprehensive cloud security measures for a healthcare provider, ensuring HIPAA compliance and protecting sensitive patient data while improving system performance.',
-                      ),
-                      successCard(
-                        imageUrl: 'https://via.placeholder.com/400x200',
-                        domain: 'E-commerce',
-                        title: 'Scalable Infrastructure for Growing Start-Up',
-                        description:
-                            'Deployed scalable, cost-effective cloud hosting and auto-scaling solutions that allowed a fast-growing e-commerce brand to handle surges in traffic with ease.',
-                      ),
-                      successCard(
-                        imageUrl: 'https://via.placeholder.com/400x200',
-                        domain: 'Education',
-                        title: 'Virtual Classroom Cloud Integration',
-                        description:
-                            'Built and secured a virtual learning platform using cloud tools, reducing downtime, enhancing collaboration, and improving access for thousands of students.',
-                      ),
-                    ],
+            // Toggle Button
+            ElevatedButton.icon(
+              onPressed: () {
+                setState(() {
+                  showStories = !showStories;
+                });
+              },
+              icon: const Icon(Icons.arrow_drop_down_circle_outlined),
+              label: const Text(
+                'Check Our Success Stories',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.redAccent,
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 14),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                elevation: 5,
+                shadowColor: Colors.deepPurpleAccent.withOpacity(0.3),
+              ),
+            ),
+            const SizedBox(height: 30),
+
+            // Success Stories Area with custom animation
+            ClipRect(
+              child: AnimatedSize(
+                duration: const Duration(milliseconds: 600),
+                curve: Curves.easeInOutCubic,
+                reverseDuration: const Duration(milliseconds: 600),
+                vsync: this,
+                child: Align(
+                  alignment: Alignment.center,
+                  heightFactor: showStories ? 1.0 : 0.0,
+                  child: AnimatedOpacity(
+                    opacity: showStories ? 1.0 : 0.0,
+                    duration: const Duration(milliseconds: 400),
+                    curve: Curves.easeInOut,
+                    child: Column(
+                      children: [
+                        successCard(
+                          imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/7%20E-commerce%20Security%20Solutions.jpg',
+                          domain: 'Retail',
+                          title: 'E-commerce Platform Redesign',
+                          description:
+                              'Redesigned and rebuilt an e-commerce platform resulting in a 45% increase in conversion rate and 30% reduction in cart abandonment. The new mobile-first approach led to a 60% increase in mobile sales.',
+                        ),
+                        successCard(
+                          imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/3%20Custom%20E-commerce%20Development.jpg',
+                          domain: 'Technology',
+                          title: 'SaaS Dashboard Application',
+                          description:
+                              'Developed a complex SaaS dashboard application with real-time data visualization, user management, and subscription handling. The intuitive UI design reduced onboarding time by 50%.',
+                        ),
+                        successCard(
+                          imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/healthcare_1.jpg',
+                          domain: 'Healthcare',
+                          title: 'Healthcare Patient Portal',
+                          description:
+                              'Built a secure patient portal allowing users to schedule appointments, access medical records, and communicate with healthcare providers. The solution improved patient engagement by 65%.',
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -153,11 +155,22 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
           // Image
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
-            child: Image.network(
-              imageUrl,
-              width: double.infinity,
-              height: isMobile ? 160 : 200,
-              fit: BoxFit.cover,
+            child: AspectRatio(
+              aspectRatio: 16 / 9, // Adjust based on your image's aspect ratio
+              child: Image.network(
+                imageUrl,
+                fit: BoxFit.cover,
+                width: double.infinity,
+                errorBuilder: (context, error, stackTrace) => const Icon(
+                  Icons.broken_image,
+                  size: 100,
+                  color: Colors.grey,
+                ),
+                loadingBuilder: (context, child, loadingProgress) {
+                  if (loadingProgress == null) return child;
+                  return const Center(child: CircularProgressIndicator());
+                },
+              ),
             ),
           ),
           const SizedBox(height: 12),
