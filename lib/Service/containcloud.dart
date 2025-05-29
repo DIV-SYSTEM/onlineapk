@@ -48,7 +48,7 @@ class ContainCloud extends StatelessWidget {
         const SizedBox(height: 24),
         Container(
           key: cloud7Key, // Assign key to Cloud7
-          child: const Cloud7(),
+          child: const ContactForm(),
         ),
       ],
     );
