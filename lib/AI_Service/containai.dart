@@ -44,7 +44,7 @@ class _ContainAIState extends State<ContainAI> {
       scrollController: _scrollController, // Pass the ScrollController
       contentSections: [
         Web1(scrollToForm: scrollToForm), // Replaced Web1 with AI1
-        const Am4(), // Replaced Am4 with AI4
+        const Web2(), // Replaced Am4 with AI4
         const Am7(), // Replaced Am7 with AI7
         //AutoMovingCardSection(), // Replaced AutoMovingCardSection with AI3 (assuming it's a card section)
         const Am6(), // Replaced Am6 with AI6
