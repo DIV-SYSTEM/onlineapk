@@ -13,69 +13,69 @@ class _Am4State extends State<Am4> {
   final List<Map<String, dynamic>> solutions = [
     {
       'title': 'Mastery of Meta Ads',
-      'icon': Icons.directions_car_filled,
+      'icon': Icons.campaign,
       'description': 'Utilize Facebook, Instagram, and the larger Meta network to create customized advertising campaigns that increase engagement, clicks, and conversions.',
       'features': [
         'Audience targeting based on behavior and interests',
         'A/B testing for creative optimization',
         'Real-time campaign analytics dashboard'
       ],
-      'image': 'assets/connected_vehicle.png',
+      'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/m1.jpg',
     },
     {
       'title': 'Google Ads Dominance',
-      'icon': Icons.factory,
+      'icon': Icons.search,
       'description': 'When your clients are actively searching, show up at the top of search results. You can precisely acquire high-intent traffic with our high-converting Google Ads strategy.',
       'features': [
         'Keyword research & bid optimization',
         'Conversion tracking setup',
         'Geo-targeted campaigns'
       ],
-      'image': 'assets/manufacturing.png',
+      'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/Google%20Ads%205.jpg',
     },
     {
       'title': 'Optimization of Search Engines (SEO)',
-      'icon': Icons.build_circle,
+      'icon': Icons.trending_up,
       'description': 'Increase your web presence and be found organically. We help you rank higher and get steady, high-quality traffic with everything from technical SEO to content optimization.',
       'features': [
         'On-page SEO audits & improvements',
         'Link building strategies',
         'Technical SEO (site speed, mobile optimization)'
       ],
-      'image': 'assets/diagnostic.png',
+      'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/seo%206.jpg',
     },
     {
       'title': 'Power of Social Media',
-      'icon': Icons.store,
+      'icon': Icons.share,
       'description': 'To expand your community and increase interaction, we create content that makes users want to scroll and oversee targeted campaigns on social media sites like Facebook, Instagram, LinkedIn, and Twitter.',
       'features': [
         'Content calendar planning',
         'Hashtag strategy development',
         'Cross-platform post scheduling'
       ],
-      'image': 'assets/dealership.png',
+      'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/Power%20of%20Social%20Media%20.jpg',
     },
     {
       'title': 'Linking Content',
-      'icon': Icons.memory,
+      'icon': Icons.article,
       'description': 'We create useful, audience-driven content, such as blogs, videos, and downloadable guides, that helps clients along their journey and fosters trust.',
       'features': [
         'Blog and article writing',
         'Video scripting and production planning',
         'Ebooks and whitepaper creation'
       ],
-      'image': 'assets/autonomous.png',
+      'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/linking%20content%208.jpg',
     },
     {
       'title': 'Email Marketing Strategies That Work',
-      'icon': Icons.local_shipping,
+      'icon': Icons.email,
       'description': 'Use tailored email campaigns to interact with your audience in order to develop leads, encourage recurring business, and raise lifetime value.',
       'features': [
         'Segmentation and personalization',
         'Automated drip campaigns',
         'A/B testing subject lines and CTAs'
       ],
-      'image': 'assets/fleet.png',
+      'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/email%20markting%209.jpg',
     },
   ];
 
@@ -183,17 +183,28 @@ class _Am4State extends State<Am4> {
                   const SizedBox(height: 16),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(12),
-                    child: Image.asset(
-                      solutions[selectedIndex!]['image'],
-                      width: double.infinity,
-                      fit: BoxFit.cover,
+                    child: AspectRatio(
+                      aspectRatio: 3 / 2, // Based on previous 791x527
+                      child: Image.network(
+                        solutions[selectedIndex!]['image'],
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) => Container(
+                          color: Colors.grey[200],
+                          child: const Center(child: Text('Image not found')),
+                        ),
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return const Center(child: CircularProgressIndicator());
+                        },
+                      ),
                     ),
                   ),
                   const SizedBox(height: 16),
                   Center(
                     child: ElevatedButton(
                       onPressed: () {
-                        // You can add navigation or a link here
+                        // Add navigation or link here
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.redAccent,
