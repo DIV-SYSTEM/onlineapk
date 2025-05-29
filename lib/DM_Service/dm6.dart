@@ -70,7 +70,7 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
                 borderRadius: BorderRadius.circular(30),
               ),
               elevation: 5,
-              shadowColor: Colors.redAccent.withOpacity(0.3),
+              shadowColor: Colors.deepPurpleAccent.withOpacity(0.3),
             ),
           ),
           const SizedBox(height: 30),
@@ -92,21 +92,21 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
                   child: Column(
                     children: [
                       successCard(
-                        imageUrl: 'https://via.placeholder.com/400x200',
+                        imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/6%20E-commerce%20Performance%20Optimization.jpg',
                         domain: 'Retail',
                         title: 'E-commerce Revenue Growth',
                         description:
                             'Implemented a comprehensive digital marketing strategy for an e-commerce retailer, including Google Shopping ads, Meta retargeting, and SEO. Resulted in a 215% increase in online revenue and 180% growth in ROAS (Return on Ad Spend) within 6 months.',
                       ),
                       successCard(
-                        imageUrl: 'https://via.placeholder.com/400x200',
-                        domain: 'SaaS',
-                        title: 'B2B Lead Generation Campaign',
+                        imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/4.jpg',
+                        domain: 'Saas',
+                        title: 'B2B Lead Generation campaigns',
                         description:
                             'Developed and executed a multi-channel lead generation campaign for a B2B SaaS company, focusing on LinkedIn Ads, Google Search, and content marketing. Generated 430+ qualified leads in the first quarter, resulting in 28 new enterprise clients.',
                       ),
                       successCard(
-                        imageUrl: 'https://via.placeholder.com/400x200',
+                        imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/5%20Cloud%20Migration1.jpg',
                         domain: 'Healthcare',
                         title: 'Local Business Visibility Boost',
                         description:
