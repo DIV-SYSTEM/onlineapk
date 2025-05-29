@@ -7,7 +7,7 @@ class Web6 extends StatefulWidget {
   State<Web6> createState() => _Web6State();
 }
 
-class _Web6State extends State<Web6> with TickerProviderStateMixin {
+class _Web6State extends State<Web6> {
   bool showStories = false;
 
   @override
@@ -82,7 +82,6 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
                 duration: const Duration(milliseconds: 600),
                 curve: Curves.easeInOutCubic,
                 reverseDuration: const Duration(milliseconds: 600),
-                vsync: this,
                 child: Align(
                   alignment: Alignment.center,
                   heightFactor: showStories ? 1.0 : 0.0,
