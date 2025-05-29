@@ -1,13 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// Imports for Services UI classes
+import 'Service/containcloud.dart';
+import 'Web_Service/containweb.dart';
+import 'AI_Service/containai.dart';
+import 'DM_Service/containdm.dart';
+import 'Contact/containmain.dart';
+
+// Imports for Industries UI classes
+import 'Healthcare/containhc.dart';
+import 'Automobile/containam.dart';
+import 'Telecomm/containtl.dart';
+import 'Ecom/containec.dart';
+import 'Education/contained.dart';
+import 'Fin_Bank/containfb.dart';
+import 'Govt_Defense/containgd.dart';
+
 class Footer extends StatelessWidget {
   const Footer({super.key});
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final isMobile = screenWidth < 600;
+    final isMobile = screenWidth < 768;
 
     return Container(
       color: Colors.black,
@@ -70,24 +86,24 @@ class Footer extends StatelessWidget {
                     ]),
                     SizedBox(height: 20),
                     FooterSection(title: "Industries", items: [
-                      "Automobile",
-                      "E-Commerce",
-                      "Telecommunication",
+                      "Technology",
+                      "Services",
+                      "ECommerce",
+                      "Insurance",
                       "Education",
                       "Healthcare",
-                      "Government & Defense",
-                      "Finance & Banking"
+                      "Manufacturing"
                     ]),
                     SizedBox(height: 20),
                     FooterSection(title: "Company", items: [
-                      "About",
+                      "About Us",
                       "FAQ",
                       "Blog",
-                      "Contact"
+                      "Contact Us"
                     ]),
                     SizedBox(height: 20),
                     FooterSection(title: "Legal", items: [
-                      "Privacy",
+                      "Privacy Policy",
                       "Terms and Conditions"
                     ]),
                   ],
@@ -106,26 +122,26 @@ class Footer extends StatelessWidget {
                     ),
                     Expanded(
                       child: FooterSection(title: "Industries", items: [
-                        "Automobile",
-                        "E-Commerce",
-                        "Telecommunication",
+                        "Technology",
+                        "Services",
+                        "ECommerce",
+                        "Insurance",
                         "Education",
                         "Healthcare",
-                        "Government & Defense",
-                        "Finance & Banking"
+                        "Manufacturing"
                       ]),
                     ),
                     Expanded(
                       child: FooterSection(title: "Company", items: [
-                        "About",
+                        "About Us",
                         "FAQ",
                         "Blog",
-                        "Contact"
+                        "Contact Us"
                       ]),
                     ),
                     Expanded(
                       child: FooterSection(title: "Legal", items: [
-                        "Privacy",
+                        "Privacy Policy",
                         "Terms and Conditions"
                       ]),
                     ),
@@ -183,20 +199,51 @@ class HoverLink extends StatefulWidget {
 class _HoverLinkState extends State<HoverLink> {
   bool _isHovering = false;
 
+  // Map of text to corresponding page widget for Services and Industries
+  final Map<String, Widget> _pageMap = {
+    "Cloud Services": const ContainCloud(),
+    "Development Services": const ContainWeb(),
+    "AI-ML Services": const ContainAI(),
+    "Digital Marketing": const ContainDM(),
+    "Contact Us": const ContainMain(),
+
+
+    //"Technology": const Technology(),
+   // "Services": const Services(),
+    //"ECommerce": const ECommerce(),
+    //"Insurance": const Insurance(),
+    //"Education": const Education(),
+    //"Healthcare": const Healthcare(),
+    //"Manufacturing": const Manufacturing(),
+  };
+
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
       cursor: SystemMouseCursors.click,
       onEnter: (_) => setState(() => _isHovering = true),
       onExit: (_) => setState(() => _isHovering = false),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 4),
-        child: Text(
-          widget.text,
-          style: TextStyle(
-            color: _isHovering ? Colors.blueAccent : Colors.white70,
-            fontSize: 14,
-            decoration: _isHovering ? TextDecoration.underline : null,
+      child: GestureDetector(
+        onTap: () {
+          // Only navigate for Services and Industries
+          final page = _pageMap[widget.text];
+          if (page != null) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => page),
+            );
+          }
+          // No navigation for Company and Legal
+        },
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 4),
+          child: Text(
+            widget.text,
+            style: TextStyle(
+              color: _isHovering ? Colors.blueAccent : Colors.white70,
+              fontSize: 14,
+              decoration: _isHovering ? TextDecoration.underline : null,
+            ),
           ),
         ),
       ),
