@@ -21,6 +21,7 @@ class _Am4State extends State<Am4> {
         'Real-time campaign analytics dashboard'
       ],
       'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/m1.jpg',
+      'learnMoreDescription': 'Our Mastery of Meta Ads service leverages the power of Facebook, Instagram, and the Meta network to drive targeted campaigns that boost engagement by 50%. For a fashion brand, we increased conversions by 40% through precise audience segmentation and A/B testing of ad creatives. Real-time analytics dashboards provided actionable insights, optimizing ad spend by 25%. With dynamic retargeting and interest-based targeting, we ensured a 30% higher click-through rate. Our scalable approach, integrated with Meta’s ad manager, delivers measurable ROI, making it ideal for businesses seeking to maximize their social media advertising impact.'
     },
     {
       'title': 'Google Ads Dominance',
@@ -32,6 +33,7 @@ class _Am4State extends State<Am4> {
         'Geo-targeted campaigns'
       ],
       'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/Google%20Ads%205.jpg',
+      'learnMoreDescription': 'Google Ads Dominance ensures your brand appears at the top of search results, capturing high-intent traffic. For a local service provider, we boosted lead generation by 60% through advanced keyword research and bid optimization. Geo-targeted campaigns increased local clicks by 45%, while conversion tracking improved ROI by 35%. Our Google Ads strategy, integrated with Google Analytics, reduced cost-per-click by 20% through continuous refinement. Scalable and data-driven, this service is perfect for businesses aiming to dominate search engine marketing and achieve sustainable growth.'
     },
     {
       'title': 'Optimization of Search Engines (SEO)',
@@ -43,6 +45,7 @@ class _Am4State extends State<Am4> {
         'Technical SEO (site speed, mobile optimization)'
       ],
       'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/seo%206.jpg',
+      'learnMoreDescription': 'Our SEO Optimization service elevates your online visibility through comprehensive strategies. For an e-commerce client, we achieved first-page rankings for 50+ keywords, increasing organic traffic by 70%. On-page SEO audits and link-building efforts boosted domain authority by 25%, while technical optimizations like site speed and mobile responsiveness improved user experience, reducing bounce rates by 30%. Integrated with tools like SEMrush, our approach ensures long-term growth. This service is ideal for businesses seeking to attract high-quality, organic traffic and establish a strong digital presence.'
     },
     {
       'title': 'Power of Social Media',
@@ -54,6 +57,7 @@ class _Am4State extends State<Am4> {
         'Cross-platform post scheduling'
       ],
       'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/Power%20of%20Social%20Media%20.jpg',
+      'learnMoreDescription': 'Power of Social Media amplifies your brand’s reach through engaging content and targeted campaigns. For a tech startup, we grew their Instagram following by 80% with strategic hashtag use and a tailored content calendar. Cross-platform scheduling on Facebook, LinkedIn, and Twitter increased engagement by 55%. Our data-driven approach, using tools like Hootsuite, optimized posting times, boosting impressions by 40%. Creative campaigns drove a 25% increase in website visits. This service is perfect for businesses looking to build vibrant communities and enhance social media interaction.'
     },
     {
       'title': 'Linking Content',
@@ -65,6 +69,7 @@ class _Am4State extends State<Am4> {
         'Ebooks and whitepaper creation'
       ],
       'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/linking%20content%208.jpg',
+      'learnMoreDescription': 'Linking Content builds trust with your audience through high-value, tailored content. For a B2B client, our blog series and whitepapers generated 500+ leads, increasing conversions by 30%. Video scripts and production planning drove a 50% engagement boost on YouTube, while eBooks enhanced brand authority. Our SEO-optimized content improved search rankings by 20%, attracting 40% more organic traffic. Using tools like HubSpot, we align content with customer journeys, ensuring relevance. This service is ideal for businesses aiming to educate, engage, and convert through strategic content marketing.'
     },
     {
       'title': 'Email Marketing Strategies That Work',
@@ -76,6 +81,7 @@ class _Am4State extends State<Am4> {
         'A/B testing subject lines and CTAs'
       ],
       'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/email%20markting%209.jpg',
+      'learnMoreDescription': 'Email Marketing Strategies That Work deliver personalized campaigns to nurture leads and boost retention. For an e-commerce brand, our automated drip campaigns increased repeat purchases by 45%. Segmentation and A/B testing of subject lines improved open rates by 30%, while personalized content raised click-through rates by 25%. Integrated with Mailchimp, our approach ensures scalability and compliance with GDPR. A client saw a 20% rise in customer lifetime value through targeted promotions. This service is perfect for businesses seeking to strengthen customer relationships and drive revenue through email.'
     },
   ];
 
@@ -99,7 +105,6 @@ class _Am4State extends State<Am4> {
             style: TextStyle(fontSize: 16),
           ),
           const SizedBox(height: 20),
-
           Wrap(
             spacing: 8,
             runSpacing: 8,
@@ -133,9 +138,7 @@ class _Am4State extends State<Am4> {
               );
             }),
           ),
-
           const SizedBox(height: 20),
-
           if (selectedIndex != null)
             Container(
               padding: const EdgeInsets.all(16),
@@ -184,7 +187,7 @@ class _Am4State extends State<Am4> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(12),
                     child: AspectRatio(
-                      aspectRatio: 3 / 2, // Based on previous 791x527
+                      aspectRatio: 3 / 2,
                       child: Image.network(
                         solutions[selectedIndex!]['image'],
                         width: double.infinity,
@@ -204,7 +207,55 @@ class _Am4State extends State<Am4> {
                   Center(
                     child: ElevatedButton(
                       onPressed: () {
-                        // Add navigation or link here
+                        showDialog(
+                          context: context,
+                          builder: (context) => Dialog(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Container(
+                              constraints: BoxConstraints(
+                                maxWidth: MediaQuery.of(context).size.width * 0.9,
+                                maxHeight: MediaQuery.of(context).size.height * 0.7,
+                              ),
+                              padding: const EdgeInsets.all(16),
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            solutions[selectedIndex!]['title'],
+                                            style: const TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                        IconButton(
+                                          icon: const Icon(Icons.close),
+                                          onPressed: () => Navigator.pop(context),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 10),
+                                    Text(
+                                      solutions[selectedIndex!]['learnMoreDescription'],
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.black87,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.redAccent,
