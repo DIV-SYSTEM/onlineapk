@@ -35,7 +35,7 @@ class ContainFB extends StatelessWidget {
         AM8(),
         AM9(),
         FinTechSection(),
-        Cloud4(),
+        FinanceBanking4(),
         Cloud5(),
         Cloud6(),
         ContactForm(),
