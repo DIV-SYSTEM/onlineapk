@@ -35,7 +35,7 @@ class ContainED extends StatelessWidget {
         AM8(),
         AM9(),
         AmTcSection(),
-        Cloud4(),
+        EduTech4(),
         Cloud5(),
         Cloud6(),
         ContactForm(),
