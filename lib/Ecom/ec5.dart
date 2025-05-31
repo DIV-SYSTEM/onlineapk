@@ -6,7 +6,38 @@ class AM5 extends StatefulWidget { const AM5({super.key});
 
 class _AM5State extends State<AM5> { bool showPlatforms = false;
 
-final List<Map<String, dynamic>> platforms = [ { 'icon': Icons.settings, 'title': 'AUTOSAR', 'description': 'Standardized automotive software architecture for ECU development.' }, { 'icon': Icons.android, 'title': 'Android Automotive', 'description': 'Open-source platform powering in-car infotainment systems.' }, { 'icon': Icons.memory, 'title': 'QNX', 'description': 'Reliable real-time OS for embedded automotive systems.' }, { 'icon': Icons.cloud, 'title': 'AWS IoT', 'description': 'Scalable cloud platform for connected vehicle solutions.' }, { 'icon': Icons.cloud_queue, 'title': 'Azure IoT', 'description': 'Microsoft’s cloud platform for vehicle data and management.' }, { 'icon': Icons.build, 'title': 'Custom Platform', 'description': 'Tailored platforms to meet specific automotive business needs.' }, ];
+final List<Map<String, dynamic>> platforms = [
+  {
+    'icon': Icons.shopping_cart,
+    'title': 'Shopify',
+    'description': 'Build and customize Shopify stores with advanced features and integrations.'
+  },
+  {
+    'icon': Icons.store,
+    'title': 'Magento',
+    'description': 'Leverage the power of Magento for enterprise-grade e-commerce solutions.'
+  },
+  {
+    'icon': Icons.shopping_bag,
+    'title': 'WooCommerce',
+    'description': 'Create flexible WordPress-based online stores with WooCommerce.'
+  },
+  {
+    'icon': Icons.business,
+    'title': 'BigCommerce',
+    'description': 'Develop scalable online stores with BigCommerce\'s robust features.'
+  },
+  {
+    'icon': Icons.cloud_circle,
+    'title': 'Salesforce Commerce Cloud',
+    'description': 'Implement enterprise e-commerce solutions with Salesforce Commerce Cloud.'
+  },
+  {
+    'icon': Icons.construction,
+    'title': 'Custom Solutions',
+    'description': 'Build bespoke e-commerce platforms tailored to unique business requirements.'
+  },
+];
 
 @override Widget build(BuildContext context) { final screenWidth = MediaQuery.of(context).size.width;
 
@@ -17,7 +48,7 @@ return Container(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       const Text(
-        'Automotive Platforms We Support',
+        'E-commerce Platforms We Support',
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: 24,
@@ -27,7 +58,7 @@ return Container(
       ),
       const SizedBox(height: 12),
       const Text(
-        'We have expertise across major automotive platforms and technologies, allowing us to implement the best solution for your specific requirements.',
+        'We have expertise across all major e-commerce platforms, allowing us to recommend and implement the best solution for your specific business needs.',
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 16, color: Colors.black87),
       ),
@@ -39,7 +70,8 @@ return Container(
           });
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.redAccent,
+          foregroundColor: Colors.white,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
