@@ -66,21 +66,6 @@ class Home10 extends StatelessWidget {
               color: Colors.black54,
             ),
           ),
-          const SizedBox(height: 30),
-          ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black87,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
-              ),
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-            ),
-            child: const Text(
-              "Explore vibrant life @OneAim",
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
         ],
       ),
     );
@@ -116,7 +101,7 @@ class Home10 extends StatelessWidget {
           ],
         ),
         child: Column(
-crossAxisAlignment:
+          crossAxisAlignment:
               isLeft ? CrossAxisAlignment.start : CrossAxisAlignment.end,
           children: [
             Text(
