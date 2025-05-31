@@ -21,6 +21,7 @@ return Container(
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.indigo,
+            foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
