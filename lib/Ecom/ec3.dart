@@ -21,13 +21,14 @@ return Container(
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.red.shade700,
+            foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
           ),
           child: const Text(
-            'Why Your Automotive Business Needs Specialized IT Solutions',
+            'Why Your E-commerce Business Needs Specialized IT Solutions',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
@@ -36,21 +37,21 @@ return Container(
       if (isExpanded) ...[
         const SizedBox(height: 16),
         const Text(
-          "The automotive industry is undergoing a profound digital transformation, driven by connected vehicles, autonomous technologies, electrification, and changing consumer expectations. To thrive in this evolving landscape, automotive businesses need specialized IT solutions that address industry-specific challenges.",
+          "E-commerce businesses face unique technical challenges that require specialized solutions. From handling high-volume transactions and managing complex product catalogs to ensuring security and integrating with multiple systems, e-commerce platforms demand expertise beyond general web development.",
           style: TextStyle(fontSize: 15),
         ),
         const SizedBox(height: 20),
-        _buildCheckItem('Digital Shift:', 'Adapt quickly to changing tech trends.'),
-        _buildCheckItem('Scalability:', 'Easily expand as your business grows.'),
-        _buildCheckItem('Real-time Analytics:', 'Monitor performance and make quick decisions.'),
-        _buildCheckItem('Customer Experience:', 'Deliver more personalized services.'),
-        _buildCheckItem('Integration:', 'Connect all departments and platforms seamlessly.'),
+        _buildCheckItem('Complex Integrations:', 'Connect with payment gateways, shipping providers, ERP systems, and more'),
+        _buildCheckItem('Performance Demands:', 'Handle traffic spikes and maintain fast load times'),
+        _buildCheckItem('Security Requirements:', 'Protect customer data and comply with regulations'),
+        _buildCheckItem('Scalability Needs:', 'Grow your platform alongside your business'),
+
         const SizedBox(height: 20),
         Center(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(16),
-            child: Image.network(
-              'https://images.unsplash.com/photo-1519589327869-9f7aa1dcd0e6',
+            child: Image.asset(
+              'assets/images/2need to e commence (1280 x 800 px).jpg',
               width: isSmallScreen ? screenWidth * 0.9 : screenWidth * 0.6,
               fit: BoxFit.cover,
             ),
