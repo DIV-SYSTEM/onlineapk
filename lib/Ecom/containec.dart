@@ -36,8 +36,8 @@ class ContainEC extends StatelessWidget {
         AmTcSection(),
         ECommerce4(),
         Cloud5(),
-        Cloud6(),
-        Cloud7(),
+        ContactInfoSection(),
+        ContactForm(),
       ],
     );
   }
