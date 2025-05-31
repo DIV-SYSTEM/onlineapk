@@ -27,7 +27,7 @@ return Container(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
           ),
           child: const Text(
-            'Why Your Automotive Business Needs Specialized IT Solutions',
+            'Why Telecom Providers Need Advanced IT Solutions',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           ),
@@ -36,21 +36,21 @@ return Container(
       if (isExpanded) ...[
         const SizedBox(height: 16),
         const Text(
-          "The automotive industry is undergoing a profound digital transformation, driven by connected vehicles, autonomous technologies, electrification, and changing consumer expectations. To thrive in this evolving landscape, automotive businesses need specialized IT solutions that address industry-specific challenges.",
+          "As data demand surges and technologies like 5G, IoT, and AI reshape communication, telecom operators must modernize their IT ecosystems. Our telecom-focused solutions drive operational efficiency, enhance security, and support network innovation.",
           style: TextStyle(fontSize: 15),
         ),
         const SizedBox(height: 20),
-        _buildCheckItem('Digital Shift:', 'Adapt quickly to changing tech trends.'),
-        _buildCheckItem('Scalability:', 'Easily expand as your business grows.'),
-        _buildCheckItem('Real-time Analytics:', 'Monitor performance and make quick decisions.'),
-        _buildCheckItem('Customer Experience:', 'Deliver more personalized services.'),
-        _buildCheckItem('Integration:', 'Connect all departments and platforms seamlessly.'),
+        _buildCheckItem('Next-Gen Network Support:', 'Enable 5G, VoIP, and fiber deployments with intelligent infrastructure'),
+        _buildCheckItem('Cybersecurity Resilience:', 'Protect critical communication systems from evolving threats'),
+        _buildCheckItem('Scalable Infrastructure:', 'Adapt to growing demand with modular, cloud-native platforms'),
+        
+        _buildCheckItem('Seamless Legacy Integration:', 'Modernize without disruption to existing networks and OSS/BSS systems'),
         const SizedBox(height: 20),
         Center(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(16),
             child: Image.network(
-              'https://images.unsplash.com/photo-1519589327869-9f7aa1dcd0e6',
+              'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/2%20digi%20mar.jpg',
               width: isSmallScreen ? screenWidth * 0.9 : screenWidth * 0.6,
               fit: BoxFit.cover,
             ),
