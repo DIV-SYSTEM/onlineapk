@@ -12,7 +12,7 @@ return Container(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       Text(
-        'Accelerate Your\nAutomotive Innovation\nWith Advanced IT Solutions',
+        'Transform Your \nE-commerce Business \nWith Cutting-Edge IT Solutions',
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: screenWidth < 400 ? 22 : 28,
@@ -23,7 +23,7 @@ return Container(
       ),
       const SizedBox(height: 20),
       Text(
-        'From connected vehicles and autonomous technologies to manufacturing systems and dealership solutions, we provide comprehensive IT services to drive the future of automotive innovation.',
+        'From custom development to platform integration, performance optimization, and security solutions, we provide comprehensive IT services to help your e-commerce business thrive in the digital marketplace.',
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: screenWidth < 400 ? 14 : 16,
@@ -38,13 +38,15 @@ return Container(
         spacing: 16,
         runSpacing: 20,
         alignment: WrapAlignment.center,
-        children: const [
-          _SymbolCard(icon: Icons.directions_car, label: 'Connected Vehicle'),
-          _SymbolCard(icon: Icons.precision_manufacturing, label: 'Manufacturing'),
-          _SymbolCard(icon: Icons.build_circle, label: 'Diagnostics'),
-          _SymbolCard(icon: Icons.smart_toy, label: 'Autonomous'),
-          _SymbolCard(icon: Icons.local_shipping, label: 'Fleet Management'),
-        ],
+          children: const [
+            _SymbolCard(icon: Icons.shopping_cart, label: 'Shop Products'),
+            _SymbolCard(icon: Icons.category, label: 'Categories'),
+            _SymbolCard(icon: Icons.local_offer, label: 'Deals & Offers'),
+            _SymbolCard(icon: Icons.payment, label: 'Secure Payment'),
+            _SymbolCard(icon: Icons.local_shipping, label: 'Fast Delivery'),
+
+          ],
+
       ),
     ],
   ),
