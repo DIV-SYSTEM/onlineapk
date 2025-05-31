@@ -25,7 +25,7 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < 768;
-
+ 
     return Container(
       color: Colors.black,
       padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
