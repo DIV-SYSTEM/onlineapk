@@ -65,7 +65,7 @@ class ContactInfoSection extends StatelessWidget {
               buildSocialLogo(
                 'https://cdn-icons-png.flaticon.com/512/174/174857.png',
                 'LinkedIn',
-                'https://www.linkedin.com/company/one-aim-it-solutions/',
+                'https://www.linkedin.com/company/oneaim-it-solutions/',
               ),
               const SizedBox(width: 16),
               buildSocialLogo(
