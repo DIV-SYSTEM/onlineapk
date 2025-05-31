@@ -12,7 +12,7 @@ return Container(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       Text(
-        'Accelerate Your\nAutomotive Innovation\nWith Advanced IT Solutions',
+        'Secure and Scalable \nTelecom Infrastructure \nfor Government & Defense',
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: screenWidth < 400 ? 22 : 28,
@@ -23,7 +23,7 @@ return Container(
       ),
       const SizedBox(height: 20),
       Text(
-        'From connected vehicles and autonomous technologies to manufacturing systems and dealership solutions, we provide comprehensive IT services to drive the future of automotive innovation.',
+        'From mission-critical communications and secure network architectures to spectrum management and field-ready telecom systems, we deliver advanced solutions tailored to the unique operational demands of government, defense, and intelligence organizations.',
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: screenWidth < 400 ? 14 : 16,
@@ -38,13 +38,15 @@ return Container(
         spacing: 16,
         runSpacing: 20,
         alignment: WrapAlignment.center,
-        children: const [
-          _SymbolCard(icon: Icons.directions_car, label: 'Connected Vehicle'),
-          _SymbolCard(icon: Icons.precision_manufacturing, label: 'Manufacturing'),
-          _SymbolCard(icon: Icons.build_circle, label: 'Diagnostics'),
-          _SymbolCard(icon: Icons.smart_toy, label: 'Autonomous'),
-          _SymbolCard(icon: Icons.local_shipping, label: 'Fleet Management'),
-        ],
+          children: const [
+            _SymbolCard(icon: Icons.wifi, label: 'Network Security'),
+            _SymbolCard(icon: Icons.chat, label: 'Tactical Communication'),
+            _SymbolCard(icon: Icons.videocam, label: 'Survillance System'),
+            _SymbolCard(icon: Icons.foundation, label: 'Public Infrastructure'),
+            _SymbolCard(icon: Icons.signal_cellular_alt, label: '5G & Spectrum'),
+
+          ],
+
       ),
     ],
   ),
