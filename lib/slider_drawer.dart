@@ -1,6 +1,6 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'chatbot_screen.dart';
 import 'Contact/containmain.dart';
 import 'Service/containcloud.dart';
 import 'Web_Service/containweb.dart';
@@ -13,6 +13,7 @@ import 'Ecom/containec.dart';
 import 'Fin_Bank/containfb.dart';
 import 'Govt_Defense/containgd.dart';
 import 'Telecomm/containtl.dart';
+import 'Real/containrs.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -75,6 +76,7 @@ class CustomDrawer extends StatelessWidget {
                           _drawerTile(context, 'Automobile', const ContainAM()),
                           _drawerTile(context, 'Telecommunication', const ContainTL()),
                           _drawerTile(context, 'E-Commerce', const ContainEC()),
+                          _drawerTile(context, 'Real Estate and Construction', const ContainRS()),
                           _drawerTile(context, 'Education', const ContainED()),
                           _drawerTile(context, 'Finance and Banking', const ContainFB()),
                           _drawerTile(context, 'Government and Defense', const ContainGD()),
@@ -96,7 +98,12 @@ class CustomDrawer extends StatelessWidget {
                   child: Column(
                     children: [
                       OutlinedButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) => const ChatbotScreen()),
+                          );
+                        },
                         icon: const Icon(Icons.auto_awesome),
                         label: const Text("Let's Talk AI"),
                         style: OutlinedButton.styleFrom(
