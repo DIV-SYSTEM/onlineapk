@@ -6,7 +6,7 @@ class AM5 extends StatefulWidget { const AM5({super.key});
 
 class _AM5State extends State<AM5> { bool showPlatforms = false;
 
-final List<Map<String, dynamic>> platforms = [ { 'icon': Icons.settings, 'title': 'AUTOSAR', 'description': 'Standardized automotive software architecture for ECU development.' }, { 'icon': Icons.android, 'title': 'Android Automotive', 'description': 'Open-source platform powering in-car infotainment systems.' }, { 'icon': Icons.memory, 'title': 'QNX', 'description': 'Reliable real-time OS for embedded automotive systems.' }, { 'icon': Icons.cloud, 'title': 'AWS IoT', 'description': 'Scalable cloud platform for connected vehicle solutions.' }, { 'icon': Icons.cloud_queue, 'title': 'Azure IoT', 'description': 'Microsoft’s cloud platform for vehicle data and management.' }, { 'icon': Icons.build, 'title': 'Custom Platform', 'description': 'Tailored platforms to meet specific automotive business needs.' }, ];
+final List<Map<String, dynamic>> platforms = [ { 'icon': Icons.settings, 'title': '5G Core Platforms', 'description': 'Deploy scalable solutions on 5G Standalone and Non-Standalone cores.' }, { 'icon': Icons.android, 'title': 'OSS/BSS Systems', 'description': 'Integrate seamlessly with industry-leading OSS and BSS platforms.' }, { 'icon': Icons.memory, 'title': 'Telecom Cloud (Telco Cloud)', 'description': 'Utilize carrier-grade cloud platforms for flexibility and resilience.' }, { 'icon': Icons.cloud, 'title':'SD-WAN & NFV', 'description': 'Enable agile networking with software-defined WAN and network functions virtualization.' }, { 'icon': Icons.cloud_queue, 'title': 'IoT Device Management', 'description': 'Manage millions of connected devices efficiently and securely.' }, { 'icon': Icons.build, 'title': 'Customer Engagement Platforms', 'description': 'Deliver personalized interactions using omnichannel communication systems.' }, ];
 
 @override Widget build(BuildContext context) { final screenWidth = MediaQuery.of(context).size.width;
 
@@ -17,7 +17,7 @@ return Container(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       const Text(
-        'Automotive Platforms We Support',
+        'Telecom Platforms We Support',
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: 24,
@@ -27,7 +27,7 @@ return Container(
       ),
       const SizedBox(height: 12),
       const Text(
-        'We have expertise across major automotive platforms and technologies, allowing us to implement the best solution for your specific requirements.',
+        'We empower telecom providers with platform-specific integration and development expertise, supporting the most advanced network architectures, OSS/BSS systems, and emerging communication technologies.',
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 16, color: Colors.black87),
       ),
@@ -39,7 +39,7 @@ return Container(
           });
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.redAccent,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
           ),
