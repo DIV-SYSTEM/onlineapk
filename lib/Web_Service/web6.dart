@@ -10,6 +10,30 @@ class Web6 extends StatefulWidget {
 class _Web6State extends State<Web6> {
   bool showStories = false;
 
+  final List<Map<String, dynamic>> successStories = [
+    {
+      'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/7%20E-commerce%20Security%20Solutions.jpg',
+      'domain': 'Retail',
+      'title': 'E-commerce Platform Redesign',
+      'description': 'Redesigned and rebuilt an e-commerce platform resulting in a 45% increase in conversion rate and 30% reduction in cart abandonment. The new mobile-first approach led to a 60% increase in mobile sales.',
+      'readMoreDescription': 'Our redesign of a major retail e-commerce platform transformed the user experience, driving a 45% increase in conversions. By adopting a mobile-first approach, we optimized navigation and checkout processes, reducing cart abandonment by 30%. The platform, built on Shopify with custom integrations, achieved a 60% surge in mobile sales. Features like personalized product recommendations and fast-loading pages, powered by a CDN, improved user engagement by 25%. Security enhancements, including PCI-compliant payment gateways, ensured safe transactions. The scalable architecture supports peak traffic during sales events, maintaining 99.9% uptime, empowering the retailer to expand their digital presence effectively.'
+    },
+    {
+      'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/3%20Custom%20E-commerce%20Development.jpg',
+      'domain': 'Technology',
+      'title': 'SaaS Dashboard Application',
+      'description': 'Developed a complex SaaS dashboard application with real-time data visualization, user management, and subscription handling. The intuitive UI design reduced onboarding time by 50%.',
+      'readMoreDescription': 'We developed a SaaS dashboard application for a tech firm, streamlining operations with real-time data visualization and user management. Built with React and Node.js, the platform reduced onboarding time by 50% through an intuitive UI. Subscription handling was optimized with Stripe integration, increasing payment processing efficiency by 35%. Interactive charts and customizable widgets enhanced decision-making, while role-based access ensured security. The cloud-based architecture on AWS guaranteed 99.99% uptime, supporting 10,000+ active users. Our iterative testing and UX refinements boosted user satisfaction by 40%, enabling the client to scale their SaaS offering seamlessly.'
+    },
+    {
+      'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/healthcare_1.jpg',
+      'domain': 'Healthcare',
+      'title': 'Healthcare Patient Portal',
+      'description': 'Built a secure patient portal allowing users to schedule appointments, access medical records, and communicate with healthcare providers. The solution improved patient engagement by 65%.',
+      'readMoreDescription': 'Our secure patient portal for a healthcare provider revolutionized patient interaction, boosting engagement by 65%. Developed using Angular and Firebase, the portal enables seamless appointment scheduling, medical record access, and secure messaging with providers. HIPAA-compliant encryption and multi-factor authentication protect sensitive data. The intuitive interface reduced appointment no-shows by 20% through automated reminders. Integration with EHR systems streamlined workflows, saving staff 15 hours weekly. The scalable platform supports 50,000+ users, with mobile optimization increasing access by 30%. This solution enhanced patient satisfaction and operational efficiency, setting a new standard for digital healthcare services.'
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -26,7 +50,6 @@ class _Web6State extends State<Web6> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // Heading
             const Text(
               'Success Stories',
               textAlign: TextAlign.center,
@@ -38,8 +61,6 @@ class _Web6State extends State<Web6> {
               ),
             ),
             const SizedBox(height: 16),
-
-            // Subtext
             const Text(
               'Explore some of our recent web development projects and the results we have achieved for our clients.',
               textAlign: TextAlign.center,
@@ -50,8 +71,6 @@ class _Web6State extends State<Web6> {
               ),
             ),
             const SizedBox(height: 25),
-
-            // Toggle Button
             ElevatedButton.icon(
               onPressed: () {
                 setState(() {
@@ -75,8 +94,6 @@ class _Web6State extends State<Web6> {
               ),
             ),
             const SizedBox(height: 30),
-
-            // Success Stories Area with custom animation
             ClipRect(
               child: AnimatedSize(
                 duration: const Duration(milliseconds: 600),
@@ -90,29 +107,17 @@ class _Web6State extends State<Web6> {
                     duration: const Duration(milliseconds: 400),
                     curve: Curves.easeInOut,
                     child: Column(
-                      children: [
-                        successCard(
-                          imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/7%20E-commerce%20Security%20Solutions.jpg',
-                          domain: 'Retail',
-                          title: 'E-commerce Platform Redesign',
-                          description:
-                              'Redesigned and rebuilt an e-commerce platform resulting in a 45% increase in conversion rate and 30% reduction in cart abandonment. The new mobile-first approach led to a 60% increase in mobile sales.',
+                      children: List.generate(
+                        successStories.length,
+                        (index) => successCard(
+                          context: context,
+                          imageUrl: successStories[index]['imageUrl'],
+                          domain: successStories[index]['domain'],
+                          title: successStories[index]['title'],
+                          description: successStories[index]['description'],
+                          readMoreDescription: successStories[index]['readMoreDescription'],
                         ),
-                        successCard(
-                          imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/3%20Custom%20E-commerce%20Development.jpg',
-                          domain: 'Technology',
-                          title: 'SaaS Dashboard Application',
-                          description:
-                              'Developed a complex SaaS dashboard application with real-time data visualization, user management, and subscription handling. The intuitive UI design reduced onboarding time by 50%.',
-                        ),
-                        successCard(
-                          imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/healthcare_1.jpg',
-                          domain: 'Healthcare',
-                          title: 'Healthcare Patient Portal',
-                          description:
-                              'Built a secure patient portal allowing users to schedule appointments, access medical records, and communicate with healthcare providers. The solution improved patient engagement by 65%.',
-                        ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
@@ -125,10 +130,12 @@ class _Web6State extends State<Web6> {
   }
 
   Widget successCard({
+    required BuildContext context,
     required String imageUrl,
     required String domain,
     required String title,
     required String description,
+    required String readMoreDescription,
   }) {
     double screenWidth = MediaQuery.of(context).size.width;
     bool isMobile = screenWidth < 600;
@@ -151,11 +158,10 @@ class _Web6State extends State<Web6> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Image
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: AspectRatio(
-              aspectRatio: 16 / 9, // Adjust based on your image's aspect ratio
+              aspectRatio: 16 / 9,
               child: Image.network(
                 imageUrl,
                 fit: BoxFit.cover,
@@ -173,8 +179,6 @@ class _Web6State extends State<Web6> {
             ),
           ),
           const SizedBox(height: 12),
-
-          // Domain Tag
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
             decoration: BoxDecoration(
@@ -191,8 +195,6 @@ class _Web6State extends State<Web6> {
             ),
           ),
           const SizedBox(height: 10),
-
-          // Title
           Text(
             title,
             style: const TextStyle(
@@ -202,8 +204,6 @@ class _Web6State extends State<Web6> {
             ),
           ),
           const SizedBox(height: 10),
-
-          // Description
           Text(
             description,
             style: const TextStyle(
@@ -213,12 +213,60 @@ class _Web6State extends State<Web6> {
             ),
           ),
           const SizedBox(height: 10),
-
-          // Read More
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => Dialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Container(
+                      constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width * 0.9,
+                        maxHeight: MediaQuery.of(context).size.height * 0.7,
+                      ),
+                      padding: const EdgeInsets.all(16),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    title,
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                IconButton(
+                                  icon: const Icon(Icons.close),
+                                  onPressed: () => Navigator.pop(context),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              readMoreDescription,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              },
               child: const Text(
                 'Read More',
                 style: TextStyle(
@@ -228,7 +276,7 @@ class _Web6State extends State<Web6> {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
