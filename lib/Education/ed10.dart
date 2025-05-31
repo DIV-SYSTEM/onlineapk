@@ -1,12 +1,36 @@
 import 'package:flutter/material.dart';
 
-class Cloud4 extends StatelessWidget {
-  const Cloud4({super.key});
+class EduTech4 extends StatelessWidget {
+  const EduTech4({super.key});
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     bool isMobile = screenWidth < 600;
+
+    final List<Map<String, dynamic>> successStories = [
+      {
+        'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/Adaptive%20Learning%20Platform.jpg',
+        'domain': 'Edu-Tech',
+        'title': 'Personalized Learning Platform',
+        'description': 'Developed a tailored learning management system for an Edu-Tech startup, enhancing student engagement by 40% and streamlining content delivery for educators.',
+        'readMoreDescription': 'Our team built a personalized learning management system for an Edu-Tech startup, integrating adaptive learning algorithms to boost student engagement by 40%. Using AWS cloud infrastructure, we ensured 99.99% uptime and seamless content delivery for 10,000+ users. The platform’s AI-driven recommendations improved learning outcomes by 30%, while an intuitive dashboard simplified course management for educators. Secure user authentication and data encryption ensured compliance with privacy standards, enabling the startup to scale rapidly and enhance educational experiences.'
+      },
+      {
+        'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/University%20LMS%20Implementation.jpg',
+        'domain': 'Edu-Tech',
+        'title': 'Virtual Classroom Integration',
+        'description': 'Implemented a scalable virtual classroom solution for an online education provider, reducing latency by 50% and increasing student participation by 35%.',
+        'readMoreDescription': 'We deployed a scalable virtual classroom solution for an online education provider, leveraging WebRTC for real-time video streaming, reducing latency by 50%. The platform, hosted on Azure, supported 5,000 concurrent users with 99.9% reliability. Interactive features like live polls and breakout rooms increased student participation by 35%. Secure cloud storage and end-to-end encryption protected sensitive data, while a user-friendly interface improved accessibility. This solution empowered the provider to deliver high-quality education globally, enhancing both engagement and scalability.'
+      },
+      {
+        'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/3%20Data%20Security%20%26%20Compliance%20in%20Education.jpg',
+        'domain': 'Edu-Tech',
+        'title': 'AI-Powered Assessment Tool',
+        'description': 'Created an AI-driven assessment platform for a university, automating grading processes and improving evaluation accuracy by 45%.',
+        'readMoreDescription': 'Our AI-powered assessment platform transformed grading for a university, automating evaluations with 45% improved accuracy. Built with TensorFlow and hosted on Google Cloud, the system processed 20,000+ assessments monthly, reducing faculty workload by 60%. Machine learning models provided detailed performance analytics, enhancing student feedback. Secure APIs ensured data integrity, while a responsive design supported mobile access. This solution streamlined academic operations, saved 200+ hours monthly, and elevated the quality of education through precise, data-driven insights.'
+      },
+    ];
 
     return Container(
       color: const Color(0xFFF2F2F2),
@@ -15,58 +39,40 @@ class Cloud4 extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Heading
           const Text(
             'Success Stories',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
-
-          // Subtext
           const Text(
-            'See how our cloud services have helped businesses across industries overcome challenges and achieve their goals.',
+            'See how our Edu-Tech services have empowered educational institutions and startups to achieve their goals.',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 16, color: Colors.black87),
           ),
           const SizedBox(height: 30),
-
-          // Cards
           Column(
-            children: [
-              successCard(
-                imageUrl: 'https://via.placeholder.com/400x200',
-                domain: 'Healthcare',
-                title: 'Healthcare Data Security Overhaul',
-                description:
-                    'Implemented comprehensive cloud security measures for a healthcare provider, ensuring HIPAA compliance and protecting sensitive patient data while improving system performance.',
-              ),
-              successCard(
-                imageUrl: 'https://via.placeholder.com/400x200',
-                domain: 'E-commerce',
-                title: 'Scalable Infrastructure for Growing Start-Up',
-                description:
-                    'Deployed scalable, cost-effective cloud hosting and auto-scaling solutions that allowed a fast-growing e-commerce brand to handle surges in traffic with ease.',
-              ),
-              successCard(
-                imageUrl: 'https://via.placeholder.com/400x200',
-                domain: 'Education',
-                title: 'Virtual Classroom Cloud Integration',
-                description:
-                    'Built and secured a virtual learning platform using cloud tools, reducing downtime, enhancing collaboration, and improving access for thousands of students.',
-              ),
-            ],
-          )
+            children: successStories.map((story) => successCard(
+                  context: context,
+                  imageUrl: story['imageUrl'],
+                  domain: story['domain'],
+                  title: story['title'],
+                  description: story['description'],
+                  readMoreDescription: story['readMoreDescription'],
+                )).toList(),
+          ),
         ],
       ),
     );
   }
 
   Widget successCard({
+    required BuildContext context,
     required String imageUrl,
     required String domain,
     required String title,
     required String description,
+    required String readMoreDescription,
   }) {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 14),
@@ -86,7 +92,6 @@ class Cloud4 extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Image
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: Image.network(
@@ -94,11 +99,18 @@ class Cloud4 extends StatelessWidget {
               height: 180,
               width: double.infinity,
               fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => const Icon(
+                Icons.broken_image,
+                size: 100,
+                color: Colors.grey,
+              ),
+              loadingBuilder: (context, child, loadingProgress) {
+                if (loadingProgress == null) return child;
+                return const Center(child: CircularProgressIndicator());
+              },
             ),
           ),
           const SizedBox(height: 12),
-
-          // Domain Tag
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
             decoration: BoxDecoration(
@@ -111,23 +123,68 @@ class Cloud4 extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-// Title
           Text(
             title,
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
-
-          // Description
           Text(
             description,
             style: const TextStyle(fontSize: 14, color: Colors.black87),
           ),
           const SizedBox(height: 10),
-
-          // Read More
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => Dialog(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  child: Container(
+                    constraints: BoxConstraints(
+                      maxWidth: MediaQuery.of(context).size.width * 0.9,
+                      maxHeight: MediaQuery.of(context).size.height * 0.7,
+                    ),
+                    padding: const EdgeInsets.all(16),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  title,
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
+                              IconButton(
+                                icon: const Icon(Icons.close),
+                                onPressed: () => Navigator.pop(context),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 10),
+                          Text(
+                            readMoreDescription,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              );
+            },
             child: const Text(
               'Read More',
               style: TextStyle(
@@ -135,7 +192,7 @@ class Cloud4 extends StatelessWidget {
                 decoration: TextDecoration.underline,
               ),
             ),
-          )
+          ),
         ],
       ),
     );
