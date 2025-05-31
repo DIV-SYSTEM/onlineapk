@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'ai1.dart';
 import 'ai2.dart';
 import 'ai3.dart';
-//import 'ai4.dart';
+import 'ai4.dart';
 import 'ai5.dart';
 import 'ai6.dart';
 import 'ai7.dart';
 import 'ai8.dart';
-import 'aicontact.dart';
-
+import 'package:flutter_app/Service/cloud6.dart';
 import '../Screen/screen.dart'; // Import GenericScreen from Screen folder
 
 class ContainAI extends StatefulWidget {
@@ -46,12 +45,12 @@ class _ContainAIState extends State<ContainAI> {
         Web1(scrollToForm: scrollToForm), // Replaced Web1 with AI1
         const Web2(), // Replaced Am4 with AI4
         const Am7(), // Replaced Am7 with AI7
-        //AutoMovingCardSection(), // Replaced AutoMovingCardSection with AI3 (assuming it's a card section)
+        AutoMovingCardSection(), // Replaced AutoMovingCardSection with AI3 (assuming it's a card section)
         const Am6(), // Replaced Am6 with AI6
-        const Web6(), // Replaced Web6 with AI5
+        const AI6(), // Replaced Web6 with AI5
         const Web7(), // Replaced Web7 with AI8
         const Cloud6(),
-        ContactForm(key: _formKey), // Attach the form key
+        Cloud7(key: _formKey), // Attach the form key
       ],
     );
   }
