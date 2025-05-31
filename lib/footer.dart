@@ -25,7 +25,7 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < 768;
- 
+
     return Container(
       color: Colors.black,
       padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
@@ -141,7 +141,7 @@ class Footer extends StatelessWidget {
                           "ECommerce",
                           "Telecommunication",
                           "Education",
-                           "Government and Defense",
+                          "Government and Defense",
                           "Finance and Banking",
                           "Real Estate and Construction"
                         ],
@@ -233,21 +233,53 @@ class _HoverLinkState extends State<HoverLink> {
     "Education": const ContainED(),
     "Government and Defense": const ContainGD(),
     "Finance and Banking": const ContainFB(),
-    "Real Estate and Construction" : const ContainRS()
+    "Real Estate and Construction": const ContainRS()
   };
 
-  final Map<String, String> _popupContent = {
+  final Map<String, dynamic> _popupContent = {
     "About Us":
         "OneAim IT Solutions is a leading provider of innovative IT services, dedicated to empowering businesses with cutting-edge technology. Founded with a vision to simplify complex digital challenges, we specialize in cloud computing, web development, AI-ML solutions, and digital marketing. Our team of experts delivers tailored solutions across industries like healthcare, e-commerce, education, and manufacturing. With a client-centric approach, we ensure measurable results, driving efficiency, growth, and success. At OneAim, we are committed to excellence, fostering trust, and building long-term partnerships to help our clients thrive in a dynamic digital landscape.",
-    "FAQ":
-        "Welcome to the OneAim IT Solutions FAQ section. Here are answers to common questions: \n1. **What services do you offer?** We provide cloud services, web and app development, AI-ML solutions, and digital marketing tailored to your business needs. \n2. **Which industries do you serve?** We work with healthcare, e-commerce, education, manufacturing, and more. \n3. **How do you ensure project success?** Our agile methodology, regular updates, and dedicated support guarantee timely delivery and quality. \n4. **Can you customize solutions?** Yes, all our solutions are tailored to meet specific client requirements. \n5. **What is your pricing model?** We offer flexible pricing based on project scope; contact us for a quote. \n6. **How do you handle data security?** We implement industry-standard encryption and comply with GDPR and other regulations. \n7. **What is the typical project timeline?** Timelines vary by project complexity; we provide detailed schedules during consultation. \n8. **Do you offer post-launch support?** Yes, we provide ongoing maintenance and support to ensure long-term success. \nContact us for any further queries!",
+    "FAQ": [
+      {
+        "question": "What services do you offer?",
+        "answer": "We provide cloud services, web and app development, AI-ML solutions, and digital marketing tailored to your business needs."
+      },
+      {
+        "question": "Which industries do you serve?",
+        "answer": "We work with healthcare, e-commerce, education, manufacturing, and more."
+      },
+      {
+        "question": "How do you ensure project success?",
+        "answer": "Our agile methodology, regular updates, and dedicated support guarantee timely delivery and quality."
+      },
+      {
+        "question": "Can you customize solutions?",
+        "answer": "Yes, all our solutions are tailored to meet specific client requirements."
+      },
+      {
+        "question": "What is your pricing model?",
+        "answer": "We offer flexible pricing based on project scope; contact us for a quote."
+      },
+      {
+        "question": "How do you handle data security?",
+        "answer": "We implement industry-standard encryption and comply with GDPR and other regulations."
+      },
+      {
+        "question": "What is the typical project timeline?",
+        "answer": "Timelines vary by project complexity; we provide detailed schedules during consultation."
+      },
+      {
+        "question": "Do you offer post-launch support?",
+        "answer": "Yes, we provide ongoing maintenance and support to ensure long-term success."
+      },
+    ],
     "Privacy Policy":
         "At OneAim IT Solutions, we prioritize your privacy. Our Privacy Policy outlines how we collect, use, and protect your personal information. We gather data such as names, emails, and usage patterns solely to enhance our IT services, including cloud computing, web development, and digital marketing. Data is stored securely with encryption and access controls, complying with GDPR and other regulations. We do not share your information with third parties without consent, except as required by law. You can request data access or deletion at any time. For full details or inquiries, contact our support team.",
     "Terms and Conditions":
         "By engaging with OneAim IT Solutions, you agree to our Terms and Conditions. Our IT services, including cloud solutions, web development, AI-ML, and digital marketing, are provided under agreed contracts outlining scope, timelines, and costs. Clients are responsible for providing accurate project requirements. OneAim retains intellectual property rights for custom solutions until full payment is received. We are not liable for indirect damages or losses. Disputes are resolved through arbitration. For cancellations or modifications, notify us within the agreed period. Contact us for the complete terms or clarification.",
   };
 
-  void _showPopup(BuildContext context, String title, String content) {
+  void _showPopup(BuildContext context, String title, dynamic content) {
     showDialog(
       context: context,
       builder: (context) => Dialog(
@@ -286,13 +318,45 @@ class _HoverLinkState extends State<HoverLink> {
                   ],
                 ),
                 const SizedBox(height: 12),
-                Text(
-                  content,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    color: Colors.black87,
+                if (title == "FAQ")
+                  ListView.separated(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemCount: (content as List).length,
+                    separatorBuilder: (context, index) => const SizedBox(height: 8),
+                    itemBuilder: (context, index) {
+                      final faq = content[index];
+                      return ExpansionTile(
+                        title: Text(
+                          faq['question'],
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black87,
+                          ),
+                        ),
+                        childrenPadding: const EdgeInsets.only(left: 16, right: 16, bottom: 12),
+                        expandedCrossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            faq['answer'],
+                            style: const TextStyle(
+                              fontSize: 16,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  )
+                else
+                  Text(
+                    content as String,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      color: Colors.black87,
+                    ),
                   ),
-                ),
               ],
             ),
           ),
@@ -310,7 +374,7 @@ class _HoverLinkState extends State<HoverLink> {
       child: GestureDetector(
         onTap: () {
           if (_popupContent.containsKey(widget.text)) {
-            _showPopup(context, widget.text, _popupContent[widget.text]!);
+            _showPopup(context, widget.text, _popupContent[widget.text]);
           } else {
             final page = _pageMap[widget.text];
             if (page != null) {
