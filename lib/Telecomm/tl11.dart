@@ -12,29 +12,29 @@ class _Cloud5State extends State<Cloud5> {
 
   final List<Map<String, String>> faqList = [
     {
-      'question': 'What cloud platforms do you support?',
+      'question': 'How do you handle security clearances and classified telecommunications projects?',
       'answer':
-          'We support major cloud platforms like AWS, Microsoft Azure, and Google Cloud, ensuring flexibility and scalability for your business.',
+          'We maintain a dedicated team with active security clearances across various levels to support classified telecommunications initiatives. Our infrastructure includes secure telecom labs and SCIF-compliant zones for working on sensitive communication systems. For classified telecom projects, we ensure all equipment and transmission pathways meet federal standards. We enforce strict separation between classified and unclassified networks, and collaborate with government security officials to ensure our telecom solutions are fully compliant with classified information handling protocols.',
     },
     {
-      'question': 'How secure are your cloud solutions?',
+      'question': 'What experience do you have withtelecom-releated government compliance frameworks?',
       'answer':
-          'Our cloud services include encryption, access control, and compliance with industry standards like HIPAA, GDPR, and ISO certifications.',
+          'Our telecom solutions are designed in compliance with government frameworks such as NIST SP 800-53, NIST SP 800-171, FISMA, FedRAMP, and CMMC. We’ve worked on secure telecom infrastructure projects requiring adherence to the Risk Management Framework (RMF) and specific agency telecom standards. Our engineers and cybersecurity experts implement and document telecom-specific security controls, secure data transmission protocols, and encryption standards to ensure full lifecycle compliance.',
     },
     {
-      'question': 'Can you migrate our existing infrastructure to the cloud?',
+      'question': 'Can you integrate yore telecom solutions ?',
       'answer':
-          'Yes, we offer complete cloud migration services with minimal downtime and full data integrity across platforms.',
+          'Yes, we specialize in integrating modern telecom systems with existing government networks including DoD communications, first responder systems, and legacy PSTN or VoIP networks. We understand the challenges of hybrid telecom environments and implement secure interconnection points, protocol converters, and compliant encryption to ensure interoperability. Our experience spans LTE/5G, tactical radio, satellite communications, and secure VoIP systems in government deployments.',
     },
     {
-      'question': 'Do you provide ongoing cloud management?',
+      'question': 'How do you approach security in government and defense telecom solutions?',
       'answer':
-          'Absolutely. We offer end-to-end support, including monitoring, optimization, and troubleshooting of your cloud environment.',
+          'We implement defense-in-depth strategies specific to telecom networks, including end-to-end encryption, secure signaling protocols (like SIP-TLS and SRTP), and network segmentation. We follow NIST 800-series standards and design for resilience against telecom-specific threats such as spoofing, jamming, and interception. Our telecom solutions also include network behavior monitoring and threat intelligence integration for proactive defense across the entire communications stack.',
     },
     {
-      'question': 'Are your cloud solutions customizable?',
+      'question': 'Whta is your appraoch to handling sensitive but unclassified(SBU) telecom data ?',
       'answer':
-          'Yes, we tailor our cloud architecture, deployment, and services according to your unique business requirements.',
+          'For telecom-related SBU data such as Controlled Unclassified Information (CUI) in call records or network configurations, we enforce strict access control, encrypted storage and transmission, and detailed audit logging. We implement compliance with NIST SP 800-171 and FOUO guidelines, ensuring telecom metadata and signaling information are safeguarded. Our teams are trained in secure telecom data handling, especially in environments where confidentiality, availability, and integrity are mission-critical.',
     },
   ];
 
@@ -52,7 +52,7 @@ class _Cloud5State extends State<Cloud5> {
         children: [
           // Header
           const Text(
-            'Frequently Asked Questions About Cloud Solutions',
+            'Frequently Asked Questions',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
@@ -60,7 +60,7 @@ class _Cloud5State extends State<Cloud5> {
 
           // Subtext
           const Text(
-            'Find answers to common questions about our cloud services and how we can help your business scale online.',
+            'Find answers to common questions about our telecom capabilities, technology stack, implementation process, and support.',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 16, color: Colors.black87),
           ),
