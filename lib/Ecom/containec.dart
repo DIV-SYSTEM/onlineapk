@@ -8,46 +8,37 @@ import 'ec6.dart';
 import 'ec7.dart';
 import 'ec8.dart';
 import 'ec9.dart';
-import "ec10.dart";
-import "ec11.dart";
-import "ec12.dart";
-import "ec13.dart";
-import "ec14.dart";
+import 'ec10.dart';
+import 'ec11.dart';
+import 'ec12.dart';
+import 'ec13.dart';
+import 'ec14.dart';
+import '../Screen/screen.dart'; // Import GenericScreen from Screen folder
+
 class ContainEC extends StatelessWidget {
   const ContainEC({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 24),
-        child: Center(
-          child: Container(
-            width: MediaQuery.of(context).size.width < 700 ? double.infinity : 600,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                AM1(),
-                AM2Section(),
-                AM3(),
-                Am4(),
-                AM5(),
-                Am6(),
-                Am7(),
-                AM8(),
-                AM9(),
-                AmTcSection(),
-                Cloud4(),
-                Cloud5(),
-                Cloud6(),
-                Cloud7(),
-
-              ],
-            ),
-          ),
-        ),
-      ),
+    return GenericScreen(
+      title: 'E-Commerce Services', // Set the title for the AppBar
+      maxWidth: 600.0, // Match ContainEC's maxWidth
+      contentSections: const [
+        AM1(),
+        AM2Section(),
+        AM3(),
+        Am4(),
+        AM5(),
+        Am6(),
+        Am7(),
+        AM8(),
+        //AM9(),
+        AmTcSection(),
+        ECommerce4(),
+        Cloud5(),
+        Cloud6(),
+        Cloud7(),
+      ],
     );
   }
 }
