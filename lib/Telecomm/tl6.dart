@@ -6,7 +6,7 @@ class Am6 extends StatefulWidget { const Am6({super.key});
 
 class _Am6State extends State<Am6> { bool _showBenefits = false;
 
-final List<Map<String, String>> benefits = [ { 'icon': Icons.speed_outlined.codePoint.toString(), 'title': 'Accelerated Innovation', 'desc': 'Drive product and process innovation with cutting-edge IT tools.' }, { 'icon': Icons.security.codePoint.toString(), 'title': 'Improved Security', 'desc': 'Protect data, systems, and users with advanced security protocols.' }, { 'icon': Icons.settings.codePoint.toString(), 'title': 'Operational Efficiency', 'desc': 'Streamline processes and reduce costs across operations.' }, { 'icon': Icons.thumb_up.codePoint.toString(), 'title': 'Excellent UX', 'desc': 'Enhance user experience across digital touchpoints.' }, { 'icon': Icons.insights.codePoint.toString(), 'title': 'Actionable Insights', 'desc': 'Leverage data to drive smarter decisions and innovation.' }, { 'icon': Icons.sync.codePoint.toString(), 'title': 'Seamless Integration', 'desc': 'Ensure smooth interaction between legacy and modern systems.' }, ];
+final List<Map<String, String>> benefits = [ { 'icon': Icons.speed_outlined.codePoint.toString(), 'title': 'Network Security', 'desc': 'Ensure robust protection against cyber threats and unauthorized access across voice, data, and IoT networks through proactive security architectures and monitoring systems.' }, { 'icon': Icons.security.codePoint.toString(), 'title': 'Faster Connectivity', 'desc': 'Deliver ultra-low latency and high-speed connectivity through 5G deployment, fiber optics, and advanced wireless technologies.' }, { 'icon': Icons.settings.codePoint.toString(), 'title': 'Global Coverage', 'desc': 'Expand coverage and provide seamless cross-border connectivity through satellite networks, edge infrastructure, and multi-region cloud platforms.' }, { 'icon': Icons.thumb_up.codePoint.toString(), 'title': 'Enhanced User Experience', 'desc': 'Enhance user experience across digital touchpoints.' }, { 'icon': Icons.insights.codePoint.toString(), 'title': 'Actionable Insights', 'desc': 'Leverage real-time network analytics, customer behavior tracking, and churn prediction to make strategic decisions and boost ARPU.' }, { 'icon': Icons.sync.codePoint.toString(), 'title': 'Innovation & Automation', 'desc': 'Accelerate innovation using AI/ML, SDN/NFV, and cloud-native architectures that automate operations and reduce time-to-market.' }, ];
 
 @override Widget build(BuildContext context) { final screenWidth = MediaQuery.of(context).size.width;
 
@@ -18,13 +18,13 @@ return Container(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       const Text(
-        "Advantages of Our IT Services for Automobiles",
+        "Benefits of Our Telecom Solutions",
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
       ),
       const SizedBox(height: 16),
       const Text(
-        "Our comprehensive automotive IT solutions deliver tangible benefits that drive innovation, enhance efficiency, and create competitive advantages for your business.",
+        "Our telecom-specific solutions drive network innovation, reduce operational overhead, and enhance customer satisfaction across modern communication ecosystems.",
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 16, color: Colors.black87),
       ),
