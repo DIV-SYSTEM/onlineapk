@@ -1,4 +1,16 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'Service/containcloud.dart';
+import 'Web_Service/containweb.dart';
+import 'AI_Service/containai.dart';
+import 'DM_Service/containdm.dart';
+import 'Automobile/containam.dart';
+import 'Telecomm/containtl.dart';
+import 'Ecom/containec.dart';
+import 'Education/contained.dart';
+import 'Fin_Bank/containfb.dart';
+import 'Healthcare/containhc.dart';
+import 'Govt_Defense/containgd.dart';
 
 class ServiceCardsSection extends StatefulWidget {
   const ServiceCardsSection({super.key});
@@ -10,6 +22,23 @@ class ServiceCardsSection extends StatefulWidget {
 class _ServiceCardsSectionState extends State<ServiceCardsSection> {
   String? expandedTitle;
 
+  final Map<String, Widget> _serviceRoutes = {
+    '/cloud-services': const ContainCloud(),
+    '/development-services': const ContainWeb(),
+    '/ai-ml-services': const ContainAI(),
+    '/digital-marketing': const ContainDM(),
+  };
+
+  final Map<String, Widget> _industryRoutes = {
+    'Automobile': const ContainAM(),
+    'Telecommunications': const ContainTL(),
+    'E-Commerce': const ContainEC(),
+    'Education': const ContainED(),
+    'Finance & Banking': const ContainFB(),
+    'Healthcare': const ContainHC(),
+    'Government & Defense': const ContainGD(),
+  };
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -17,8 +46,7 @@ class _ServiceCardsSectionState extends State<ServiceCardsSection> {
     final horizontalPadding = screenWidth * 0.05;
 
     return Padding(
-      padding:
-          EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: 30),
+      padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: 30),
       child: Column(
         children: [
           Text(
@@ -30,7 +58,7 @@ class _ServiceCardsSectionState extends State<ServiceCardsSection> {
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             "Discover how our specialized services unlock growth, efficiency, and innovation across digital, AI, cloud, and development landscapes.",
             style: TextStyle(
@@ -39,7 +67,7 @@ class _ServiceCardsSectionState extends State<ServiceCardsSection> {
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           isWideScreen
               ? Wrap(
                   spacing: 20,
@@ -63,6 +91,7 @@ class _ServiceCardsSectionState extends State<ServiceCardsSection> {
 
   Widget buildServiceCard(Map<String, dynamic> service, double screenWidth) {
     final isExpanded = expandedTitle == service['title'];
+    final isIndustriesCard = service['href'] == '/industries';
 
     return GestureDetector(
       onTap: () {
@@ -71,16 +100,16 @@ class _ServiceCardsSectionState extends State<ServiceCardsSection> {
         });
       },
       child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
+        duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
-        margin: EdgeInsets.only(bottom: 20),
-        padding: EdgeInsets.all(20),
+        margin: const EdgeInsets.only(bottom: 20),
+        padding: const EdgeInsets.all(20),
         transform:
             isExpanded ? (Matrix4.identity()..scale(1.02)) : Matrix4.identity(),
         decoration: BoxDecoration(
           color: isExpanded ? Colors.black : Colors.white,
           borderRadius: BorderRadius.circular(16),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.black26,
               blurRadius: 10,
@@ -97,7 +126,7 @@ class _ServiceCardsSectionState extends State<ServiceCardsSection> {
                   service['icon'],
                   color: isExpanded ? Colors.white : Colors.black87,
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Expanded(
                   child: Text(
                     service['title'],
@@ -110,7 +139,7 @@ class _ServiceCardsSectionState extends State<ServiceCardsSection> {
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               service['description'],
               style: TextStyle(
@@ -118,12 +147,12 @@ class _ServiceCardsSectionState extends State<ServiceCardsSection> {
                 color: isExpanded ? Colors.white70 : Colors.black54,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               children: [
                 Text(
                   isExpanded ? "Show Less" : "Read More",
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.greenAccent,
                     fontWeight: FontWeight.bold,
                   ),
@@ -137,52 +166,92 @@ class _ServiceCardsSectionState extends State<ServiceCardsSection> {
               ],
             ),
             AnimatedCrossFade(
-              firstChild: SizedBox.shrink(),
+              firstChild: const SizedBox.shrink(),
               secondChild: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 12),
-                  ...List.generate(
-                    (service['features'] as List).length,
-                    (i) => Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 4.0),
-                      child: Row(
-                        children: [
-                          Icon(Icons.check_circle,
-                              size: 18, color: Colors.greenAccent),
-                          SizedBox(width: 8),
-                          Expanded(
-                            child: Text(
-                              service['features'][i],
-                              style: TextStyle(
-                                  fontSize: screenWidth * 0.035,
-                                  color: Colors.white),
+                  const SizedBox(height: 12),
+                  if (isIndustriesCard)
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyle(
+                          fontSize: screenWidth * 0.035,
+                          color: Colors.white,
+                        ),
+                        children: (service['features'] as List).map((feature) {
+                          return TextSpan(
+                            text: '- $feature\n',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              decoration: TextDecoration.underline,
                             ),
+                            recognizer: TapGestureRecognizer()
+                              ..onTap = () {
+                                final widget = _industryRoutes[feature];
+                                if (widget != null) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (_) => widget),
+                                  );
+                                }
+                              },
+                          );
+                        }).toList(),
+                      ),
+                    )
+                  else
+                    ...List.generate(
+                      (service['features'] as List).length,
+                      (i) => Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 4.0),
+                        child: Row(
+                          children: [
+                            const Icon(Icons.check_circle,
+                                size: 18, color: Colors.greenAccent),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                service['features'][i],
+                                style: TextStyle(
+                                  fontSize: screenWidth * 0.035,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  if (!isIndustriesCard) ...[
+                    const SizedBox(height: 10),
+                    TextButton(
+                      onPressed: () {
+                        final widget = _serviceRoutes[service['href']];
+                        if (widget != null) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (_) => widget),
+                          );
+                        }
+                      },
+                      child:  Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            'Explore Service',
+                            style: TextStyle(color: Colors.greenAccent),
                           ),
+                          Icon(Icons.arrow_right_alt, color: Colors.greenAccent),
                         ],
                       ),
                     ),
-                  ),
-                  SizedBox(height: 10),
-                  TextButton(
-                    onPressed: () {},
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          'Explore Service',
-                          style: TextStyle(color: Colors.greenAccent),
-                        ),
-                        Icon(Icons.arrow_right_alt, color: Colors.greenAccent),
-                      ],
-                    ),
-                  ),
+                  ],
                 ],
               ),
               crossFadeState: isExpanded
                   ? CrossFadeState.showSecond
                   : CrossFadeState.showFirst,
-              duration: Duration(milliseconds: 300),
+              duration: const Duration(milliseconds: 300),
             ),
           ],
         ),
