@@ -25,7 +25,8 @@ class _Am4State extends State<Am4> {
         'Cloud-based web applications with scalable architecture',
       ],
       'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/web_image_5.jpg',
-      'url': 'https://example.com/web-app-development', // Replace with actual URL
+      'url': 'https://example.com/web-app-development',
+      'learnMoreDescription': 'Our Web App Development service delivers tailored, high-performance applications that elevate user engagement and drive business growth. From ideation to deployment, we leverage modern frameworks like React and Node.js to build scalable solutions. A recent project for a logistics firm resulted in a 40% increase in user retention through a real-time tracking app. We prioritize seamless UX, cloud integration, and robust security, ensuring your app performs across devices. Our iterative process includes prototyping, testing, and optimization, reducing time-to-market by 30%. Whether it’s a PWA or an enterprise portal, we create digital experiences that align with your strategic goals and deliver measurable results.'
     },
     {
       'title': 'Custom Website Development',
@@ -40,7 +41,8 @@ class _Am4State extends State<Am4> {
         'Accessibility compliance (WCAG standards)',
       ],
       'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/web_image_2.jpg',
-      'url': 'https://example.com/custom-website-development', // Replace with actual URL
+      'url': 'https://example.com/custom-website-development',
+      'learnMoreDescription': 'Custom Website Development at our core is about creating unique, brand-aligned websites that deliver results. Using platforms like WordPress and custom frameworks, we built a site for a retail client that boosted organic traffic by 50% through SEO optimization. Our responsive designs ensure flawless performance on mobile and desktop, while fast load times improve user satisfaction by 25%. We integrate CMS for easy content updates and ensure WCAG compliance for accessibility. From custom animations to performance tuning, our process guarantees a website that enhances your brand, engages visitors, and converts leads effectively.'
     },
     {
       'title': 'UI & UX Designing',
@@ -55,7 +57,8 @@ class _Am4State extends State<Am4> {
         'Design systems for consistent brand experience',
       ],
       'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/web_image_4.jpg',
-      'url': 'https://example.com/ui-ux-designing', // Replace with actual URL
+      'url': 'https://example.com/ui-ux-designing',
+      'learnMoreDescription': 'Our UI & UX Designing service focuses on creating intuitive interfaces that captivate users and boost conversions. For a fintech app, we increased user sign-ups by 35% through streamlined user flows and engaging visuals. We conduct in-depth user research, develop personas, and craft interactive prototypes using tools like Figma. Our iterative testing ensures usability, reducing bounce rates by 20%. By building cohesive design systems, we maintain brand consistency across platforms. From wireframes to final UI, our process delivers seamless, delightful experiences that align with your business objectives and keep users coming back.'
     },
     {
       'title': 'E-Commerce Development',
@@ -70,7 +73,8 @@ class _Am4State extends State<Am4> {
         'Mobile-optimized shopping experiences',
       ],
       'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/web_image_1.jpg',
-      'url': 'https://example.com/e-commerce-development', // Replace with actual URL
+      'url': 'https://example.com/e-commerce-development',
+      'learnMoreDescription': 'Our E-Commerce Development service creates high-converting online stores tailored to your brand. For a fashion retailer, we built a Shopify-based platform that increased sales by 45% with optimized checkout flows. We integrate secure payment gateways, robust inventory systems, and mobile-friendly designs to ensure seamless shopping. Advanced search and product filtering enhance user experience, while security measures protect transactions. Our solutions scale to handle traffic spikes, with a client reporting 99.9% uptime during Black Friday. From custom storefronts to analytics dashboards, we empower your e-commerce business to thrive in competitive markets.'
     },
     {
       'title': 'API Development & Integration',
@@ -85,7 +89,8 @@ class _Am4State extends State<Am4> {
         'API security and authentication protocols',
       ],
       'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/web_image_8.jpg',
-      'url': 'https://example.com/api-development', // Replace with actual URL
+      'url': 'https://example.com/api-development',
+      'learnMoreDescription': 'API Development & Integration services ensure seamless connectivity across your platforms. We built a RESTful API for a travel app, reducing data retrieval time by 40% with GraphQL optimization. Our team designs secure, scalable APIs and integrates third-party services like payment gateways and CRMs. Microservices architectures enhance flexibility, while comprehensive documentation simplifies developer onboarding. For a SaaS client, we cut integration costs by 30% through efficient API gateways. Our focus on security, including OAuth and JWT, protects data flows, enabling robust, interconnected systems that support your business growth.'
     },
     {
       'title': 'Front-End Development',
@@ -100,7 +105,8 @@ class _Am4State extends State<Am4> {
         'Accessibility implementation and testing',
       ],
       'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/web_image_9.jpg',
-      'url': 'https://example.com/front-end-development', // Replace with actual URL
+      'url': 'https://example.com/front-end-development',
+      'learnMoreDescription': 'Our Front-End Development service delivers visually stunning, responsive interfaces that engage users. Using React, we built a dashboard for a logistics firm, improving user interaction speed by 50%. Our responsive layouts ensure cross-device compatibility, with lazy loading cutting page load times by 30%. We implement state management with Redux for seamless data flow and ensure WCAG-compliant accessibility. Cross-browser testing guarantees consistent performance, while a client saw a 25% increase in user retention due to our intuitive designs. Our focus on modern frameworks and optimization creates front-ends that elevate your digital presence.'
     },
     {
       'title': 'Back-End Development',
@@ -115,20 +121,10 @@ class _Am4State extends State<Am4> {
         'Performance monitoring and scaling solutions',
       ],
       'image': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/web_image_10.jpg',
-      'url': 'https://example.com/back-end-development', // Replace with actual URL
+      'url': 'https://example.com/back-end-development',
+      'learnMoreDescription': 'Back-End Development services create robust, scalable infrastructures for your applications. For a healthcare platform, we developed a Node.js backend with MongoDB, reducing query times by 45%. Our solutions include secure authentication, optimized databases, and cloud setups on AWS, ensuring 99.9% uptime. We integrate APIs for seamless data flow and implement monitoring tools to scale dynamically. A client achieved 30% cost savings through our efficient server management. With a focus on security and performance, we build back-ends that power reliable, data-driven applications, supporting your business’s growth and operational needs.'
     },
   ];
-
-  Future<void> _launchUrl(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Could not launch $url')),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -237,7 +233,7 @@ class _Am4State extends State<Am4> {
                   ClipRRect(
                     borderRadius: BorderRadius.circular(12),
                     child: AspectRatio(
-                      aspectRatio: 3 / 2, // Based on previous 791x527
+                      aspectRatio: 3 / 2,
                       child: Image.network(
                         solutions[selectedIndex!]['image'],
                         width: double.infinity,
@@ -256,7 +252,57 @@ class _Am4State extends State<Am4> {
                   const SizedBox(height: 16),
                   Center(
                     child: ElevatedButton(
-                      onPressed: () => _launchUrl(solutions[selectedIndex!]['url']),
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => Dialog(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            child: Container(
+                              constraints: BoxConstraints(
+                                maxWidth: MediaQuery.of(context).size.width * 0.9,
+                                maxHeight: MediaQuery.of(context).size.height * 0.7,
+                              ),
+                              padding: const EdgeInsets.all(16),
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Expanded(
+                                          child: Text(
+                                            solutions[selectedIndex!]['title'],
+                                            style: const TextStyle(
+                                              fontSize: 18,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                        IconButton(
+                                          icon: const Icon(Icons.close),
+                                          onPressed: () => Navigator.pop(context),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: 10),
+                                    Text(
+                                      solutions[selectedIndex!]['learnMoreDescription'],
+                                      style: const TextStyle(
+                                        fontSize: 14,
+                                        color: Colors.black87,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.redAccent,
                         shape: RoundedRectangleBorder(
