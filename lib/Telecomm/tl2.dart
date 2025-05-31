@@ -11,7 +11,7 @@ return Container(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       Text(
-        "Comprehensive Automotive IT Solutions",
+        "Scalable IT Solutions for the Telecommunications Industry",
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: isSmall ? 22 : 28,
@@ -21,7 +21,7 @@ return Container(
       ),
       const SizedBox(height: 16),
       Text(
-        "In today's rapidly evolving automotive landscape, technology is the driving force behind innovation, efficiency, and competitive advantage. Our specialized automotive IT solutions help manufacturers, suppliers, dealerships, and fleet operators navigate the digital transformation journey.",
+        "In a hyperconnected world, telecom providers need robust, scalable, and secure IT systems to support 5G, IoT, and edge computing. Our solutions are tailored to meet the high performance and compliance demands of the telecom ecosystem.",
         textAlign: TextAlign.center,
         style: TextStyle(
           fontSize: isSmall ? 14 : 16,
@@ -36,18 +36,18 @@ return Container(
           children: const [
             _InfoCard(
               icon: Icons.settings_suggest,
-              title: "End-to-End Solutions",
-              description: "Integrated IT solutions that cover the entire automotive value chain."
+              title: "Secure Network Architecture",
+              description: "Future-proof networks with end-to-end encryption and zero-trust frameworks"
             ),
             _InfoCard(
               icon: Icons.directions_car_filled,
-              title: "Automotive Expertise",
-              description: "Years of experience building reliable systems for the auto industry."
+              title: "Regulatory Compliance",
+              description: "Ensure adherence to telecom industry standards such as GDPR, CCPA, and TRAI"
             ),
             _InfoCard(
               icon: Icons.auto_graph,
-              title: "Future-Ready",
-              description: "Innovative technologies to future-proof your automotive business."
+              title: "High Availability Infrastructure",
+              description: "Deliver uninterrupted services with resilient cloud and edge deployments"
             ),
           ],
         ),
