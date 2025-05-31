@@ -7,7 +7,7 @@ import 'ai5.dart';
 import 'ai6.dart';
 import 'ai7.dart';
 import 'ai8.dart';
-import 'package:flutter_app/Service/cloud6.dart';
+//import 'package:flutter_app/Service/cloud6.dart';
 import '../Screen/screen.dart'; // Import GenericScreen from Screen folder
 
 class ContainAI extends StatefulWidget {
