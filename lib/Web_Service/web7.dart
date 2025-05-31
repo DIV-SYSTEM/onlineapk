@@ -73,7 +73,7 @@ class _Web7State extends State<Web7> {
         children: [
           // Header
           const Text(
-            'Frequently Asked Questions About Cloud Solutions',
+            'Frequently Asked Questions About Web Services',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
@@ -81,7 +81,7 @@ class _Web7State extends State<Web7> {
 
           // Subtext
           const Text(
-            'Find answers to common questions about our cloud services and how we can help your business scale online.',
+            'Find answers to common questions about our Web Services and how we can help your business scale online.',
             textAlign: TextAlign.center,
             style: TextStyle(fontSize: 16, color: Colors.black87),
           ),
