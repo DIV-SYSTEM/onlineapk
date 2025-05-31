@@ -1,166 +1,133 @@
-import 'package:flutter/material.dart';
 
-class Cloud6 extends StatelessWidget {
-  const Cloud6({super.key});
+import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+class ContactInfoSection extends StatelessWidget {
+  const ContactInfoSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    bool isMobile = screenWidth < 600;
+    final isMobile = MediaQuery.of(context).size.width < 600;
 
-    final List<String> whatToExpect = [
-      '30-minute consultation with a cloud expert',
-      'Understanding of your business goals',
-      'Discussion of potential cloud strategies',
-      'Answers to your cloud-related questions',
-    ];
-
-    return Container(
-      color: const Color(0xFFF0F4F8),
-      padding: EdgeInsets.symmetric(
-        vertical: 40,
-        horizontal: isMobile ? 20 : 80,
-      ),
+    return SingleChildScrollView(
+      padding: EdgeInsets.symmetric(horizontal: isMobile ? 16 : 48, vertical: 32),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Let's Discuss Your Project",
-            style: TextStyle(
-              fontSize: isMobile ? 22 : 28,
-              fontWeight: FontWeight.bold,
-            ),
+            'Get in Touch With Our Team',
+            style: TextStyle(fontSize: isMobile ? 20 : 26, fontWeight: FontWeight.bold),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 8),
           Text(
-            'Fill out the form below to schedule a free consultation with one of our cloud experts.',
-            style: TextStyle(
-              fontSize: isMobile ? 14 : 16,
-              color: Colors.black87,
-            ),
+            'We\'re here to answer your questions and discuss your project needs.',
+            style: TextStyle(fontSize: isMobile ? 14 : 16, color: Colors.grey[700]),
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 32),
+
+          buildContactCard(Icons.phone, 'Phone', [
+            '+91 89552 49714',
+            '+91 74269 95879',
+            '+1 (925) 389-4120',
+          ]),
+          const SizedBox(height: 16),
+          buildContactCard(Icons.email, 'Email', ['info@theoneaim.co.in']),
+          const SizedBox(height: 16),
+          buildContactCard(Icons.location_on, 'Office Address', [
+            '🏢 No-123, Omega',
+            'Anukampa, Near Sanskrit College',
+            'Bhankrota, Jaipur',
+            '            ',
+            '🏢 5590 Satinleaf way',
+            'Sanramon CA 94582',
+            '    ',
+            '🏢 2/41/2 , 1st Floor, Sadar Bazar ',
+            'Moradabad Pahari ,PO.Delhi Cantt',
+            'Dist:- South West Delhi,110010'
+          ]),
+        
+          
+          const SizedBox(height: 32),
+
           Text(
-            'Contact Information',
-            style: TextStyle(
-              fontSize: isMobile ? 20 : 24,
-              fontWeight: FontWeight.w600,
-            ),
+            'Connect with ONE AIM IT SOLUTIONS',
+            style: TextStyle(fontSize: isMobile ? 16 : 18, fontWeight: FontWeight.w600),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 12),
 
-          // Phone
-          contactItem(Icons.phone, 'Phone', '+91 9170866775', isMobile),
-          // Email
-          contactItem(Icons.email, 'Email', 'info@oneaim.com', isMobile),
-          // LinkedIn
-          contactItem(Icons.business, 'LinkedIn', 'linkedin.com/company/oneaim', isMobile),
-          // Instagram
-          contactItem(Icons.camera_alt, 'Instagram', 'instagram.com/oneaim', isMobile),
-          // YouTube
-          contactItem(Icons.ondemand_video, 'YouTube', 'youtube.com/@oneaim', isMobile),
-          // Office Address
-          contactItem(Icons.location_on, 'Office', '123 Tech Park Ave, San Francisco, CA 94107', isMobile),
-
-          const SizedBox(height: 30),
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              color: Colors.lightBlue.shade100,
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'What to Expect',
-                  style: TextStyle(
-                    fontSize: isMobile ? 18 : 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                ...whatToExpect.map(
-                  (point) => Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 6),
-                    child: Row(
-                      children: [
-                        const CircleAvatar(
-                          radius: 12,
-                          backgroundColor: Colors.green,
-                          child: Icon(Icons.check, size: 16, color: Colors.white),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: Text(
-                            point,
-                            style: TextStyle(
-                              fontSize: isMobile ? 14 : 16,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              buildSocialLogo(
+                'assets/images/youtube.jpeg',
+                'YouTube',
+                'https://youtu.be/T2MvlqwA4o4?feature=shared',
+                isAsset: true,
+              ),
+              const SizedBox(width: 16),
+              buildSocialLogo(
+                'https://cdn-icons-png.flaticon.com/512/1384/1384063.png',
+                'Instagram',
+                'https://www.instagram.com/oneaimitsolutions?igsh=MWhqemphM2dwdTByNA==',
+              ),
+              const SizedBox(width: 16),
+              buildSocialLogo(
+                'https://cdn-icons-png.flaticon.com/512/174/174857.png',
+                'LinkedIn',
+                'https://www.linkedin.com/company/one-aim-it-solutions/',
+              ),
+              const SizedBox(width: 16),
+              buildSocialLogo(
+                'https://cdn-icons-png.flaticon.com/512/733/733547.png',
+                'Facebook',
+                'https://www.facebook.com/oneaimitsolutions/',
+              ),
+            ],
           ),
         ],
       ),
     );
   }
 
+  Widget buildContactCard(IconData icon, String title, List<String> lines) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(icon, size: 24, color: Colors.blueGrey),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
+            const SizedBox(height: 4),
+            ...lines.map((line) => Text(line)).toList(),
+          ]),
+        ),
+      ],
+    );
+  }
 
-Widget contactItem(IconData icon, String title, String subtitle, bool isMobile) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.black12,
-              blurRadius: 4,
-              offset: Offset(0, 2),
-            ),
-          ],
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CircleAvatar(
-              backgroundColor: Colors.blueGrey,
-              child: Icon(icon, color: Colors.white, size: 20),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title,
-                    style: TextStyle(
-                      fontSize: isMobile ? 14 : 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    subtitle,
-                    style: TextStyle(
-                      fontSize: isMobile ? 12 : 14,
-                      color: Colors.black87,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+  Widget buildSocialLogo(String imagePath, String label, String url, {bool isAsset = false}) {
+    return InkWell(
+      onTap: () async {
+        final Uri uri = Uri.parse(url);
+        if (await canLaunchUrl(uri)) {
+          await launchUrl(uri, mode: LaunchMode.externalApplication);
+        } else {
+          print('Could not launch $url');
+        }
+      },
+      child: Column(
+        children: [
+          CircleAvatar(
+            radius: 20,
+            backgroundImage: isAsset
+                ? AssetImage(imagePath)
+                : NetworkImage(imagePath) as ImageProvider,
+            backgroundColor: Colors.transparent,
+          ),
+          const SizedBox(height: 4),
+          Text(label, style: const TextStyle(fontSize: 12)),
+        ],
       ),
     );
   }
