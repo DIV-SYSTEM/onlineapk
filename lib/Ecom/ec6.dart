@@ -6,7 +6,39 @@ class Am6 extends StatefulWidget { const Am6({super.key});
 
 class _Am6State extends State<Am6> { bool _showBenefits = false;
 
-final List<Map<String, String>> benefits = [ { 'icon': Icons.speed_outlined.codePoint.toString(), 'title': 'Accelerated Innovation', 'desc': 'Drive product and process innovation with cutting-edge IT tools.' }, { 'icon': Icons.security.codePoint.toString(), 'title': 'Improved Security', 'desc': 'Protect data, systems, and users with advanced security protocols.' }, { 'icon': Icons.settings.codePoint.toString(), 'title': 'Operational Efficiency', 'desc': 'Streamline processes and reduce costs across operations.' }, { 'icon': Icons.thumb_up.codePoint.toString(), 'title': 'Excellent UX', 'desc': 'Enhance user experience across digital touchpoints.' }, { 'icon': Icons.insights.codePoint.toString(), 'title': 'Actionable Insights', 'desc': 'Leverage data to drive smarter decisions and innovation.' }, { 'icon': Icons.sync.codePoint.toString(), 'title': 'Seamless Integration', 'desc': 'Ensure smooth interaction between legacy and modern systems.' }, ];
+final List<Map<String, String>> benefits = [
+  {
+    'icon': Icons.trending_up_outlined.codePoint.toString(),
+    'title': 'Increased Conversion Rates',
+    'desc': 'Convert more visitors into customers through streamlined checkouts, personalization, and performance enhancements.'
+  },
+  {
+    'icon': Icons.public.codePoint.toString(),
+    'title': 'Expanded Market Reach',
+    'desc': 'Reach global customers with multi-language, multi-currency, and localized shopping experiences.'
+  },
+  {
+    'icon': Icons.security_outlined.codePoint.toString(),
+    'title': 'Enhanced Security',
+    'desc': 'Protect customer data with robust security that builds trust and ensures compliance.'
+  },
+  {
+    'icon': Icons.phone_iphone.codePoint.toString(),
+    'title': 'Mobile-First Experiences',
+    'desc': 'Deliver seamless shopping across devices with responsive design and native mobile apps.'
+  },
+  {
+    'icon': Icons.sync_alt.codePoint.toString(),
+    'title': 'Streamlined Operations',
+    'desc': 'Automate and integrate systems to reduce manual work, minimize errors, and boost efficiency.'
+  },
+  {
+    'icon': Icons.insights.codePoint.toString(),
+    'title': 'Data-Driven Decisions',
+    'desc': 'Use advanced analytics to optimize products, understand customers, and guide business strategy.'
+  },
+];
+
 
 @override Widget build(BuildContext context) { final screenWidth = MediaQuery.of(context).size.width;
 
@@ -18,13 +50,13 @@ return Container(
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
       const Text(
-        "Advantages of Our IT Services for Automobiles",
+        "Benefits of Our E-commerce IT Solutions",
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
       ),
       const SizedBox(height: 16),
       const Text(
-        "Our comprehensive automotive IT solutions deliver tangible benefits that drive innovation, enhance efficiency, and create competitive advantages for your business.",
+        "Our comprehensive e-commerce IT solutions deliver tangible benefits that drive business growth, enhance customer experiences, and improve operational efficiency.",
         textAlign: TextAlign.center,
         style: TextStyle(fontSize: 16, color: Colors.black87),
       ),
