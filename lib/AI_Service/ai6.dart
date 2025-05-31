@@ -1,14 +1,38 @@
 import 'package:flutter/material.dart';
 
-class Web6 extends StatefulWidget {
-  const Web6({super.key});
+class AI6 extends StatefulWidget {
+  const AI6({Key? key}) : super(key: key);
 
   @override
-  State<Web6> createState() => _Web6State();
+  State<AI6> createState() => _AI6State();
 }
 
-class _Web6State extends State<Web6> with TickerProviderStateMixin {
+class _AI6State extends State<AI6> with TickerProviderStateMixin {
   bool showStories = false;
+
+  final List<Map<String, dynamic>> successStories = [
+    {
+      'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/6%20E-commerce%20Performance%20Optimization.jpg',
+      'domain': 'Retail',
+      'title': 'AI-Driven E-Commerce Optimization',
+      'description': 'Implemented an AI-powered recommendation engine for an e-commerce platform, increasing sales by 35% and reducing cart abandonment by 25%.',
+      'readMoreDescription': 'Our AI-driven recommendation engine transformed a retail e-commerce platform, boosting sales by 35% through personalized product suggestions. Using machine learning models built with TensorFlow, we reduced cart abandonment by 25% with dynamic user behavior analysis. The solution, integrated into a Shopify store, achieved 99.9% uptime and supported 50,000+ daily users. Real-time analytics dashboards improved marketing decisions, increasing ROI by 20%. Secure API integrations ensured data privacy, while A/B testing optimized user engagement, enabling the retailer to scale and enhance customer satisfaction.'
+    },
+    {
+      'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/4.jpg',
+      'domain': 'Finance',
+      'title': 'Fraud Detection System',
+      'description': 'Developed an AI-based fraud detection system for a financial institution, reducing fraudulent transactions by 40% and improving detection accuracy by 90%.',
+      'readMoreDescription': 'We built an AI-based fraud detection system for a financial institution, reducing fraudulent transactions by 40%. Leveraging AWS SageMaker and anomaly detection algorithms, the system achieved 90% accuracy in identifying suspicious activities. Integrated with existing banking platforms, it processed 1M+ transactions daily with minimal latency. Real-time alerts cut response times by 50%, saving Dollar 2M annually in losses. Robust encryption ensured compliance with GDPR, while continuous model retraining improved performance by 15%. This solution strengthened security and customer trust, enabling scalable fraud prevention.'
+    },
+    {
+      'imageUrl': 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/5%20Cloud%20Migration1.jpg',
+      'domain': 'Healthcare',
+      'title': 'AI-Powered Patient Support',
+      'description': 'Deployed an AI chatbot for a healthcare provider, reducing support queries by 50% and improving patient satisfaction by 30%.',
+      'readMoreDescription': 'Our AI-powered chatbot for a healthcare provider reduced support queries by 50% using natural language processing with Dialogflow. Integrated into a HIPAA-compliant portal, it handled 10,000+ patient interactions monthly, improving satisfaction by 30%. The chatbot offered appointment scheduling, FAQs, and triage support, cutting staff workload by 25%. Scalable on Azure, it ensured 99.99% uptime. Continuous learning improved response accuracy by 20%, while secure data handling maintained patient privacy. This solution enhanced operational efficiency and patient experience, setting a new standard for healthcare support.'
+    },
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +49,8 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // Heading
           const Text(
-            'Success Stories',
+            'AI Success Stories',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 28,
@@ -37,10 +60,8 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(height: 16),
-
-          // Subtext
           const Text(
-            'By deploying AI-powered monitoring and virtual assistants, we reduced IT support requests by 60% and improved response times by 40%.',
+            'Our AI solutions have empowered businesses to optimize operations, enhance security, and improve customer experiences.',
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 16,
@@ -49,8 +70,6 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(height: 25),
-
-          // Toggle Button
           ElevatedButton.icon(
             onPressed: () {
               setState(() {
@@ -74,14 +93,11 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(height: 30),
-
-          // Success Stories Area with custom animation
           ClipRect(
             child: AnimatedSize(
               duration: const Duration(milliseconds: 600),
               curve: Curves.easeInOutCubic,
               reverseDuration: const Duration(milliseconds: 600),
-
               child: Align(
                 alignment: Alignment.center,
                 heightFactor: showStories ? 1.0 : 0.0,
@@ -90,29 +106,17 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
                   duration: const Duration(milliseconds: 400),
                   curve: Curves.easeInOut,
                   child: Column(
-                    children: [
-                      successCard(
-                        imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/6%20E-commerce%20Performance%20Optimization.jpg',
-                        domain: 'Retail',
-                        title: 'E-commerce Revenue Growth',
-                        description:
-                            'Implemented a comprehensive digital marketing strategy for an e-commerce retailer, including Google Shopping ads, Meta retargeting, and SEO. Resulted in a 215% increase in online revenue and 180% growth in ROAS (Return on Ad Spend) within 6 months.',
+                    children: List.generate(
+                      successStories.length,
+                      (index) => successCard(
+                        context: context,
+                        imageUrl: successStories[index]['imageUrl'],
+                        domain: successStories[index]['domain'],
+                        title: successStories[index]['title'],
+                        description: successStories[index]['description'],
+                        readMoreDescription: successStories[index]['readMoreDescription'],
                       ),
-                      successCard(
-                        imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/4.jpg',
-                        domain: 'Saas',
-                        title: 'B2B Lead Generation campaigns',
-                        description:
-                            'Developed and executed a multi-channel lead generation campaign for a B2B SaaS company, focusing on LinkedIn Ads, Google Search, and content marketing. Generated 430+ qualified leads in the first quarter, resulting in 28 new enterprise clients.',
-                      ),
-                      successCard(
-                        imageUrl: 'https://raw.githubusercontent.com/Vanshahuja1/One-Aim-App/main/assets/images/5%20Cloud%20Migration1.jpg',
-                        domain: 'Healthcare',
-                        title: 'Local Business Visibility Boost',
-                        description:
-                            'Implemented local SEO and Google Business Profile optimization for a healthcare provider with multiple locations. Achieved first-page rankings for 45 high-value keywords and increased organic traffic by 320%, resulting in a 75% increase in appointment bookings.',
-                      ),
-                    ],
+                    ),
                   ),
                 ),
               ),
@@ -124,10 +128,12 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
   }
 
   Widget successCard({
+    required BuildContext context,
     required String imageUrl,
     required String domain,
     required String title,
     required String description,
+    required String readMoreDescription,
   }) {
     double screenWidth = MediaQuery.of(context).size.width;
     bool isMobile = screenWidth < 600;
@@ -150,7 +156,6 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Image
           ClipRRect(
             borderRadius: BorderRadius.circular(12),
             child: Image.network(
@@ -158,11 +163,18 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
               width: double.infinity,
               height: isMobile ? 160 : 200,
               fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) => const Icon(
+                Icons.broken_image,
+                size: 100,
+                color: Colors.grey,
+              ),
+              loadingBuilder: (context, child, loadingProgress) {
+                if (loadingProgress == null) return child;
+                return const Center(child: CircularProgressIndicator());
+              },
             ),
           ),
           const SizedBox(height: 12),
-
-          // Domain Tag
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
             decoration: BoxDecoration(
@@ -179,8 +191,6 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(height: 10),
-
-          // Title
           Text(
             title,
             style: const TextStyle(
@@ -190,8 +200,6 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(height: 10),
-
-          // Description
           Text(
             description,
             style: const TextStyle(
@@ -201,12 +209,60 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
             ),
           ),
           const SizedBox(height: 10),
-
-          // Read More
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => Dialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Container(
+                      constraints: BoxConstraints(
+                        maxWidth: MediaQuery.of(context).size.width * 0.9,
+                        maxHeight: MediaQuery.of(context).size.height * 0.7,
+                      ),
+                      padding: const EdgeInsets.all(16),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    title,
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                IconButton(
+                                  icon: const Icon(Icons.close),
+                                  onPressed: () => Navigator.pop(context),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 10),
+                            Text(
+                              readMoreDescription,
+                              style: const TextStyle(
+                                fontSize: 14,
+                                color: Colors.black87,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              },
               child: const Text(
                 'Read More',
                 style: TextStyle(
@@ -216,7 +272,7 @@ class _Web6State extends State<Web6> with TickerProviderStateMixin {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
